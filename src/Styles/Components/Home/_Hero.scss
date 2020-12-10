@@ -17,12 +17,11 @@
         line-height: 150px;
         font-weight: 100;
         
-        
         &.-lower{
             font-size: 20px;
             line-height: 20px;
             margin-top: 30px;
-            margin-left: 70px;
+            margin-left: 90px;
             font-weight: 700;
             font-family: 'Barlow Semi Condensed', sans-serif;
             text-transform: uppercase;
@@ -47,7 +46,7 @@
         &.-left{
             position: absolute;
             transform: translate(-105px, 29px);
-            animation: shakeLeft 4s linear infinite;
+            animation: shakeLeft 4s ease-in-out infinite;
 
             @keyframes shakeLeft {
                 0% {transform: translate(-105px, 29px);}
@@ -59,7 +58,7 @@
         &.-right{
             position: absolute;
             transform: translate(105px, -29px);
-            animation: shakeRight 4s linear infinite;
+            animation: shakeRight 4s ease-in-out infinite;
 
             @keyframes shakeRight {
                 0% {transform: translate(105px, -29px);}

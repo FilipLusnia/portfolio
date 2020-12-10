@@ -1,15 +1,31 @@
 @import 'reset-css';
 
+//colors
+$baseBlack: rgb(22, 22, 22);
+
 //fonts
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;300;500&display=swap');
+
+
+
 
 //scss Components
 @import './Components/Home/Hero';
 @import './Components//Header/Header';
 
 body {
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#root{
+    width: 97vw;
     background-color: #ffffff;
-    color: rgb(20, 20, 20);
+    color: $baseBlack;
     font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
 }

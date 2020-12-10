@@ -10,8 +10,8 @@ function Hero() {
           <h1 className="hero_title -lower">{'>'} Frontend Developer</h1>
         </div>
         <div className="hero_img_container">
-            <img src={heroleft} className="hero_img -left"></img>
-            <img src={heroright} className="hero_img -right"></img>
+            <img src={heroleft} alt="hero-img" className="hero_img -left"></img>
+            <img src={heroright} alt="hero-img" className="hero_img -right"></img>
         </div>
     </div>
   );

@@ -7,6 +7,7 @@ import Home from './Components/Home/Home';
 
 function App() {
   
+  //scroll to top on page refresh
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   }
