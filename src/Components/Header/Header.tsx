@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header() {
 
@@ -9,22 +9,19 @@ function Header() {
 
   useEffect(() => {
     // prevents menu from animating on page load ("fold" animation)
-    setInterval(()=> {setAnimationStop(null)}, 600); 
+    setTimeout(()=> {setAnimationStop(null)}, 600); 
 
-    const handleClick = (e: any) => {
+    const handleClick = (e: MouseEvent) => {
       e.preventDefault();
-
+      console.log(e);
       if(headerRef.current.contains(e.target)) {
         return;
       }
       setIsMenuActive(false);
     }
+    
+    if(isMenuActive) return document.addEventListener("mousedown", handleClick);
 
-    if(isMenuActive){
-      document.addEventListener("mousedown", handleClick);
-    } else {
-      document.removeEventListener("mousedown", handleClick);
-    }
     return () => {
       document.removeEventListener("mousedown", handleClick);
     }
@@ -33,10 +30,7 @@ function Header() {
   return (
     <div className="header_container">
       <div ref={headerRef} className={isMenuActive ? "header -active" : "header"} style={animationStop}> 
-        <div>
-
-        </div>
-
+        
         <div className="nav_items">
           <div onClick={()=> setIsMenuActive(!isMenuActive)} className={isMenuActive ? "hamburger -active" : "hamburger"}>
             <div className="hamburger-box">

@@ -1,18 +1,17 @@
 @import 'reset-css';
 
-//colors
-$baseBlack: rgb(22, 22, 22);
-
 //fonts
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;300;500&display=swap');
 
-
-
+//colors
+$baseBlack: #161616;
 
 //scss Components
-@import './Components/Home/Hero';
 @import './Components//Header/Header';
+@import './Components/Home/Hero';
+@import './Components/Home/About';
+
 
 body {
     background-color: #f3f3f3;
@@ -25,7 +24,12 @@ body {
     width: 97vw;
     background-color: #ffffff;
     color: $baseBlack;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 300;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
     overflow: hidden;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
