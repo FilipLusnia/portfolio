@@ -1,13 +1,28 @@
+import { useRef, useCallback, useState } from 'react';
 import photo from '../../Resources/profile-photo.jpg';
 import { ReactComponent as DesignIcon } from '../../Resources/sketch.svg';
 import { ReactComponent as RwdIcon } from '../../Resources/responsive_design.svg';
 import { ReactComponent as GranularityIcon } from '../../Resources/complex.svg';
 
 function About() {
+
+  const [elementsEmerged, setElementsEmerged] = useState(false);
+  const loader = useRef<any>(null);
+
+  const lastElement = useCallback(element => {
+    loader.current = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        setElementsEmerged(true);
+      }
+    }, {threshold: 0.4});
+    if(element) loader.current.observe(element)
+  }, [])
+
   return (
-    <div className="about_container">
-      <img src={photo} alt="profile img" className="about_photo"/>
-      <div className="about_info_container">
+    <div className="about_container" ref={lastElement}>
+      <img src={photo} alt="profile img" className={elementsEmerged ? "about_photo -emerged" : "about_photo"}/>
+      
+      <div className={elementsEmerged ? "about_info_container -emerged" : "about_info_container"}>
         <h1 className="about_info_title">{'>'} ABOUT</h1>
         <p className="about_info_description">
           My name's Filip. I'm a dedicated developer, 
@@ -22,7 +37,7 @@ function About() {
             <h1 className="about_attribute_title">RESPONSIVENESS</h1>
             <p className="about_attribute_description">
               For me, creating scalable websites and apps is cruical.
-              Experiencing the product across various devices should be alike.
+              Experiencing the product across various devices should feel alike.
             </p>
           </div>
           <div className="about_attribute -featured">
@@ -43,7 +58,7 @@ function About() {
             </p>
           </div>
         </div>
-      </div>
+      </div> 
     </div>  
   );
 }

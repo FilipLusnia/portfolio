@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from "react-router-dom";
+import logo from '../../Resources/logo_transparent.png';
 
 function Header() {
 
@@ -13,7 +14,6 @@ function Header() {
 
     const handleClick = (e: MouseEvent) => {
       e.preventDefault();
-      console.log(e);
       if(headerRef.current.contains(e.target)) {
         return;
       }
@@ -28,7 +28,7 @@ function Header() {
   }, [isMenuActive]);
 
   return (
-    <div className="header_container">
+    <div className="header_container"> 
       <div ref={headerRef} className={isMenuActive ? "header -active" : "header"} style={animationStop}> 
         
         <div className="nav_items">
@@ -63,6 +63,10 @@ function Header() {
           </NavLink>
 
         </div>
+      </div>
+
+      <div className="site_logo_container">
+        <img src={logo} alt="logo" className="site_logo"/>
       </div>
     </div>
   );

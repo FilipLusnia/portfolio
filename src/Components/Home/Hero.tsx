@@ -8,7 +8,6 @@ function Hero() {
           <h1 className="hero_title">Filip Luśnia</h1>
           <h1 className="hero_title -lower">{'>'} Frontend Developer</h1>
           <p className="hero_description">
-            Developer from Warsaw, Poland.<br/>
             I design and code websites, web apps and occasionally mobile apps.<br/>
             All powered by music and coffee, of course.
           </p>
