@@ -1,7 +1,7 @@
 import React from 'react';
 import {HashRouter as Router, Switch, Route} from "react-router-dom";
 
-import ScrollToTop from './ScrollToTop';
+import ScrollToTop from './Components/ScrollToTop';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 

@@ -1,0 +1,19 @@
+.showcase_container{
+    min-height: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+.showcase_title{
+    font-size: 60px;
+    font-weight: 700;
+    padding-bottom: 50px;
+    transform: rotateY(90deg);
+    opacity: 0;
+    transition: 1.5s;
+
+    &.-emerged{
+        opacity: 1;
+        transform: rotateY(0);
+    }
+}

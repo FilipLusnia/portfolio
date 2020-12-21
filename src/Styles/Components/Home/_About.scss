@@ -1,5 +1,5 @@
 .about_container{
-    min-height: 800px;
+    min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,9 +13,11 @@
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.507);
     transition: 2s;
     opacity: 0;
+    transform: translateY(5%);
 
     &.-emerged{
         opacity: 1;
+        transform: translateY(0);
     }
 }
 .about_info_container{
@@ -75,6 +77,7 @@
         width: 70px;
         height: auto;
         transition: 0.7s;
+        fill: $baseBlack;
     }
 
     &_title{
@@ -114,8 +117,8 @@
         color: #ffffff;
 
         .about_attribute_img{
-            filter: invert(100%);
             transition: 0.7s;
+            fill: #ffffff;
         }
     }
 }
