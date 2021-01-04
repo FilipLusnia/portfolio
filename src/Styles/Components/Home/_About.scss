@@ -8,7 +8,7 @@
 .about_photo{
     height: auto;
     width: 350px;
-    margin: 100px;
+    margin: 90px;
     border-radius: 50%;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.507);
     transition: 2s;
@@ -111,7 +111,6 @@
     }
 
     &:hover{
-        transform: translate(0, -15px);
         animation: none;
         background-color: $baseBlack;
         color: #ffffff;
@@ -119,6 +118,27 @@
         .about_attribute_img{
             transition: 0.7s;
             fill: #ffffff;
+        }
+    }
+
+    &:last-child{
+        animation: wiggleLastAttribute 6s infinite;
+
+        @keyframes wiggleLastAttribute {
+            0% {}
+            20% {transform: none}
+            50% {transform: translateY(-8px);}
+            60% {transform: translateY(-8px);}
+            62% {transform: translateY(-8px) rotate(2deg);}
+            64% {transform: translateY(-8px) rotate(-2deg);}
+            66% {transform: translateY(-8px) rotate(2deg);}
+            70% {transform: translateY(-8px) rotate(0deg);}
+            75% {transform: translateY(-8px) rotate(0deg);}
+            100% {}
+        }
+
+        &:hover{
+            animation-play-state: paused;
         }
     }
 }

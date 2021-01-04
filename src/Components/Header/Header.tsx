@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from "react-router-dom";
-import logo from '../../Resources/logo_transparent.png';
 
 function Header() {
 
@@ -63,10 +62,6 @@ function Header() {
           </NavLink>
 
         </div>
-      </div>
-
-      <div className="site_logo_container">
-        <img src={logo} alt="logo" className="site_logo"/>
       </div>
     </div>
   );

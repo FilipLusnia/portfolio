@@ -1,0 +1,59 @@
+.footer_container{
+    height: 200px;
+    background-color: $baseBlack;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 14px;
+
+    .footer_top_button{
+        text-decoration: none;
+        color: #ffffff;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        font-weight: 500;
+        transition: 0.2s;
+        font-size: 18px;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+
+    .footer_media{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 200px;
+        margin-bottom: 15px;
+
+        .footer_media_button{
+            display: block;
+            height: 30px;
+            width: 30px;
+            margin: 0 10px;
+            transition: 0.2s;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+    
+            &.-mail{
+                background-image: url(../../../Resources/email.svg);
+                background-repeat: no-repeat;
+                fill: white;
+            }
+            &.-linkedin{
+                background-image: url(../../../Resources/linkedin.svg);
+                background-repeat: no-repeat;
+            }
+            &.-github{
+                background-image: url(../../../Resources/github.svg);
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}

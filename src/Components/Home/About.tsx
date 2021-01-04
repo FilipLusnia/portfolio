@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import photo from '../../Resources/profile-photo.jpg';
 import { ReactComponent as DesignIcon } from '../../Resources/sketch.svg';
 import { ReactComponent as RwdIcon } from '../../Resources/responsive_design.svg';
@@ -7,15 +7,15 @@ import { ReactComponent as GranularityIcon } from '../../Resources/complex.svg';
 function About() {
 
   const [elementsEmerged, setElementsEmerged] = useState(false);
-  const loader = useRef<any>(null);
 
   const anchor = useCallback(element => {
-    loader.current = new IntersectionObserver(entries => {
+    const newObserver = new IntersectionObserver(entries => {
       if(entries[0].isIntersecting){
         setElementsEmerged(true);
       }
     }, {threshold: 0.4});
-    if(element) loader.current.observe(element)
+    
+    if(element) newObserver.observe(element);
   }, [])
 
   return (

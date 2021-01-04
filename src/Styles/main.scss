@@ -12,6 +12,8 @@ $baseBlack: #202020;
 @import './Components/Home/Hero';
 @import './Components/Home/About';
 @import './Components/Home/Showcase';
+@import './Components/Home/Footer';
+
 
 body {
     background-color: #f3f3f3;
@@ -30,6 +32,15 @@ body {
     overflow: hidden;
 }
 
-::-webkit-scrollbar{
-    display: none;
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: $baseBlack;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #666666;
 }

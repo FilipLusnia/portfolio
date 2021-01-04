@@ -1,19 +1,147 @@
 .showcase_container{
     min-height: 700px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .showcase_title{
     font-size: 60px;
     font-weight: 700;
     padding-bottom: 50px;
-    transform: rotateY(90deg);
+    margin-top: 100px;
+    transform: rotateX(90deg);
     opacity: 0;
     transition: 1.5s;
+    min-width: 50%;
+    height: auto;
+    text-align: center;
 
     &.-emerged{
         opacity: 1;
-        transform: rotateY(0);
+        transform: rotateX(0);
     }
 }
+
+.showcase_projects{
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .showcase_project_tile{
+        height: 300px;
+        width: 100%;
+        background-color: #ffffff;
+        transform: rotateX(90deg);
+        margin-top: 10px;
+        border-top: 1px solid rgb(216, 216, 216);
+        border-bottom: 1px solid rgb(216, 216, 216);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        
+        &:first-child{
+            margin-top: 40px;
+        }
+
+        .tile_background_arrow{
+            width: auto;
+            height: 130%;
+            transition: 0.5s;
+            transform: translateX(-600px);
+            opacity: 0;
+
+            &.-first{
+                fill:rgba(52, 51, 110, 0.4);
+            }
+
+            &.-second{
+                fill:rgba(51, 110, 74, 0.4);
+            }
+        }
+
+        .tile_title{
+            font-size: 100px;
+            font-weight: 700;
+            transition: 0.5s;
+            position: absolute;
+            text-align: center;
+        }
+
+        .tile_description{
+            text-align: center;
+            transform: rotateX(90deg) translateY(180px);
+            max-width: 60%;
+            transition: 0.5s;
+            font-size: 22px;
+            position: absolute;
+            opacity: 0;
+
+            span{
+                animation: pulse 2.5s infinite ease-in;
+                font-size: 18px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .project_arrow{
+                    margin-left: 5px;
+                    height: 20px;
+                    width: auto;
+                    fill:rgb(255, 255, 255);
+                }
+                
+                @keyframes pulse {
+                    0% {opacity: 1;}
+                    50% {opacity: 0.1;}
+                    100% {opacity: 1;}
+                }
+            }
+        }
+
+        &:hover{
+            background-color: $baseBlack;
+            cursor: pointer;
+            transition: 0.5s;
+
+            .tile_background_arrow{
+                animation: slideArrow 0.5s infinite linear;
+                left: 1500px;
+
+                @keyframes slideArrow {
+                    0% {opacity: 0; transform: translateX(-600px);}
+                    10% {opacity: 0;}
+                    50% {opacity: 1;}
+                    90% {opacity: 0;}
+                    100% {opacity: 0; transform: translateX(600px);}
+                }
+            }
+
+            .tile_title{
+                color: #ffffff;
+                transform: translateY(-80%);
+                font-size: 90px;
+            }
+            .tile_description{
+                transform: rotateX(0deg) translateY(40px);
+                color: #ffffff;
+                opacity: 1;
+                margin-top: 30px;
+            }
+        }
+    }
+
+    &.-emerged{
+
+        .showcase_project_tile{
+            transform: rotateX(0deg);
+            transition: 0.5s;
+        }
+    }
+}
+
