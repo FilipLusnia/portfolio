@@ -54,7 +54,7 @@ function Header() {
           </NavLink>
 
           <NavLink 
-            exact to="/contacts" 
+            exact to="/contact" 
             activeClassName="-current" 
             className={isMenuActive ? "nav_item -third -active" : "nav_item -third"} 
             onClick={()=> setIsMenuActive(false)}>

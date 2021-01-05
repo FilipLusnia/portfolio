@@ -1,0 +1,31 @@
+.top_container{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1{
+        font-size: 60px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        margin-top: 170px;
+        animation: showOnStart 1.5s, subtleMove 1.5s;
+    }
+
+    P{
+        font-size: 23px;
+        animation: showOnStart 1.5s;
+    }
+
+    @keyframes showOnStart{
+        0% {opacity: 0}
+        45% {opacity: 0}
+        100% {opacity: 1}
+    }
+
+    @keyframes subtleMove{
+        0% {transform: translateY(-50px)}
+        100% {transform: translateY(0px)}
+    }
+}

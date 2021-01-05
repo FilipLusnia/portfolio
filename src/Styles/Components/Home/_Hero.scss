@@ -4,12 +4,6 @@
     min-height: 670px;
     height: 100vh;
     align-items: center;
-
-    @keyframes showOnStart {
-        0% {opacity: 0}
-        45% {opacity: 0}
-        100% {opacity: 1}
-    }
 }
 
 .hero_info_container{
@@ -20,6 +14,12 @@
     z-index: 1;
     text-align: center;
     animation: showOnStart 1.5s;
+
+    @keyframes showOnStart {
+        0% {opacity: 0}
+        45% {opacity: 0}
+        100% {opacity: 1}
+    }
 
     .hero_title{
         font-size: 120px;

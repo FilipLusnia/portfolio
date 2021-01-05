@@ -24,7 +24,7 @@ function Showcase() {
             <SlideArrow className="tile_background_arrow -first"/>
             <h1 className="tile_title">PROJECT DRIVER</h1>
             <p className="tile_description">
-              A social-like site for drivers, providing various
+              A social site for drivers, providing various
               quizes and articles, forum and
               a point based rewarding system. <br/><br/><br/>
               <span>GO TO PROJECT'S FULL SHOWCASE <ProjectArrow className="project_arrow"/></span>
