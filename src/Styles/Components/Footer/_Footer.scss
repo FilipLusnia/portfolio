@@ -11,11 +11,15 @@
     .footer_top_button{
         text-decoration: none;
         color: #ffffff;
-        margin-top: 20px;
+        margin-top: 10px;
         margin-bottom: 50px;
         font-weight: 500;
         transition: 0.2s;
         font-size: 18px;
+        background:none;
+        border: none;
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        outline: none;
 
         &:hover{
             transform: scale(1.1);

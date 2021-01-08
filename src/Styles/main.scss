@@ -6,6 +6,7 @@
 
 //colors
 $baseBlack: #202020;
+$baseBorderRadius: 3px;
 
 //scss Components
 @import './Components//Header/Header';
@@ -13,7 +14,6 @@ $baseBlack: #202020;
 @import './Components/Home/About';
 @import './Components/Home/Showcase';
 @import './Components/Footer/Footer';
-@import './Components/Contact/Contact';
 @import './Components/Contact/ContactTop';
 @import './Components/Contact/Form';
 

@@ -1,7 +1,6 @@
 .hero_container{
     max-width: 100vw;
     display: flex;
-    min-height: 670px;
     height: 100vh;
     align-items: center;
 }
@@ -13,7 +12,7 @@
     align-items: center;
     z-index: 1;
     text-align: center;
-    animation: showOnStart 1.5s;
+    animation: showOnStart 1s;
 
     @keyframes showOnStart {
         0% {opacity: 0}
@@ -60,9 +59,10 @@
         width: 350px;
         height: 480px;
         position: absolute;
+        border-radius: $baseBorderRadius;
         background-color: #222222;
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.815);
-        animation: spreadOutOnStart 2.5s;
+        animation: spreadOutOnStart 2s;
         @keyframes spreadOutOnStart {
             0% {transform: rotateY(90deg); opacity: 0;}
             60% {transform: rotateY(90deg); opacity: 0;}
@@ -74,11 +74,12 @@
         width: 300px;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
         z-index: 1;
+        border-radius: $baseBorderRadius;
         
         &.-left{
             position: absolute;
             transform: translate(-105px, 29px);
-            animation: shakeLeft 4s ease-in-out infinite, showOnStart 1.5s;
+            animation: shakeLeft 4s ease-in-out infinite, showOnStart 1s;
 
             @keyframes shakeLeft {
                 0% {transform: translate(-105px, 29px);}
@@ -90,7 +91,7 @@
         &.-right{
             position: absolute;
             transform: translate(105px, -29px);
-            animation: shakeRight 4s ease-in-out infinite, showOnStart 1.5s;
+            animation: shakeRight 4s ease-in-out infinite, showOnStart 1s;
 
             @keyframes shakeRight {
                 0% {transform: translate(105px, -29px);}
