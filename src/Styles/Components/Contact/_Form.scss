@@ -1,5 +1,5 @@
 .form_container{
-    height: 650px;
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,6 +26,7 @@
 }
 .form_data_field{
     width: 48%;
+    min-height: 92px;
 }
 .form_data_label{
     display: flex;
@@ -48,7 +49,8 @@
     border-right: none;
 }
 .form_content_label{
-    margin-top: 30px;
+    margin-top: 20px;
+    min-height: 242px;
     display: flex; 
     flex-direction: column;
     font-size: 20px;
@@ -100,4 +102,10 @@
     height: auto;
     width: 18px;
     margin-left: 8px;
+}
+.form_error{
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    color: red;
 }

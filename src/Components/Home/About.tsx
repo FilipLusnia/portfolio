@@ -16,7 +16,7 @@ function About() {
     }, {threshold: 0.4});
     
     if(element) newObserver.observe(element);
-  }, [])
+  }, []);
 
   return (
     <div className="about_container" ref={anchor}>

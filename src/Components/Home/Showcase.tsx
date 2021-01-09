@@ -14,7 +14,7 @@ function Showcase() {
     }, {threshold: 0.4});
     
     if(element) newObserver.observe(element);
-  }, [])
+  }, []);
 
   return (
       <div ref={anchor} className="showcase_container">

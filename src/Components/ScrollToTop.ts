@@ -6,9 +6,9 @@ function ScrollToTop(props: any){
     //scrolls to top when location changes
     useEffect(()=> {
         window.scrollTo(0, 0);
-    }, [props.location])
+    }, [props.location]);
 
-	return props.children
-}
+	return props.children;
+};
 
 export default withRouter(ScrollToTop)
