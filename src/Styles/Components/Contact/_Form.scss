@@ -39,6 +39,7 @@
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-weight: 300;
     font-size: 18px;
+    letter-spacing: 0.4px;
     padding: 10px;
     margin-top: 10px;
     outline: none;
@@ -47,6 +48,7 @@
     border-radius: $baseBorderRadius;
     border-left: none;
     border-right: none;
+    transition: 0.4s;
 }
 .form_content_label{
     margin-top: 20px;
@@ -71,6 +73,8 @@
     border-radius: $baseBorderRadius;
     border-left: none;
     border-right: none;
+    letter-spacing: 0.4px;
+    transition: 0.4s;
 }
 .form_button_container{
     width: 100%;
@@ -88,14 +92,14 @@
     font-size: 18px;
     outline: none;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.15s;
     border-radius: $baseBorderRadius;
     display: flex;
     align-items: center;
     justify-content: center;
 
     &:hover{
-        transform: translateY(-4px);
+        opacity: 0.9;
     }
 }
 .form_button_icon{
@@ -108,4 +112,10 @@
     margin-top: 5px;
     font-size: 14px;
     color: red;
+    animation: revealError 0.4s linear;
+
+    @keyframes revealError {
+        0% {opacity: 0}
+        100% {opacity: 1}
+    }
 }
