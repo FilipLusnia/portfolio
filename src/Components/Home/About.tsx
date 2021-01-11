@@ -12,10 +12,11 @@ function About() {
     const newObserver = new IntersectionObserver(entries => {
       if(entries[0].isIntersecting){
         setElementsEmerged(true);
+        newObserver.disconnect();
       }
     }, {threshold: 0.4});
     
-    if(element) newObserver.observe(element);
+    element && newObserver.observe(element);
   }, []);
 
   return (
