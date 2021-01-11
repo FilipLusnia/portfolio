@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
-import { ReactComponent as PlaneIcon } from '../../Resources/paper-plane.svg';
-import { ReactComponent as DoneIcon } from '../../Resources/checkmark.svg';
+import Button from './Button';
 
 function Form() {
     const [ messageData, setMessageData ] = useState({
@@ -9,12 +8,14 @@ function Form() {
         emailValue: '',
         textValue:''
     });
-    const [messageState, setMessageState] = useState('awaiting');
 
     const [nameErr, setNameErr] = useState("");
     const [emailErr, setEmailErr] = useState("");
     const [textErr, setTextErr] = useState("");
     const [ generalError, setGeneralError ] = useState(false);
+
+    const [messageState, setMessageState] = useState('awaiting');
+    const [inputsDisabled, setInputsDisabled] = useState(false);
 
     const mailService = process.env.REACT_APP_mail_service;
     const mailTemplate = process.env.REACT_APP_mail_template;
@@ -44,6 +45,7 @@ function Form() {
         }
 
         if(!generalError && (messageState)){
+            setInputsDisabled(true);
             setMessageState('loading');
             emailjs.send(`${mailService}`, `${mailTemplate}`,{
                 name: messageData.nameValue,
@@ -81,7 +83,7 @@ function Form() {
                 {messageState !== 'sent'
                     ?
                         <>
-                            <div className="form_data">
+                            <div className="form_data" style={inputsDisabled ? {opacity: '0.5'} : undefined}>
                                 <div className="form_data_field"> 
                                     <label className="form_data_label">
                                         Name:
@@ -89,6 +91,7 @@ function Form() {
                                                 style={nameErr.length > 0 ? {borderColor: 'red'} : undefined}
                                                 placeholder="Name" 
                                                 value={messageData.nameValue}
+                                                disabled={inputsDisabled}
                                                 className="form_data_input"
                                         />
                                         {nameErr.length > 0 && <p className="form_error">{nameErr}</p>}
@@ -102,18 +105,20 @@ function Form() {
                                                 style={emailErr.length > 0 ? {borderColor: 'red'} : undefined}
                                                 value={messageData.emailValue}
                                                 placeholder="Email" 
+                                                disabled={inputsDisabled}
                                                 className="form_data_input"
                                         />
                                         {emailErr.length > 0 && <p className="form_error">{emailErr}</p>}
                                     </label>
                                 </div>
                             </div>
-                            <label className="form_content_label">
+                            <label className="form_content_label" style={inputsDisabled ? {opacity: '0.5'} : undefined}>
                                 Your message:
                                 <textarea onChange={e=> handleData(e, 'textValue')} 
                                         style={textErr.length > 0 ? {borderColor: 'red'} : undefined}
                                         value={messageData.textValue}
                                         placeholder="What's on your mind?" 
+                                        disabled={inputsDisabled}
                                         className="form_content"
                                 />
                                 {textErr.length > 0 && <p className="form_error">{textErr}</p>}
@@ -123,33 +128,7 @@ function Form() {
                         <p className="form_success_message">Message successfully sent!</p>
                 }
                 <div className="form_button_container">
-                    <button onClick={(messageState !== ('loading' && 'sent')) ? e=> handleSubmit(e) : e=> e.preventDefault()} 
-                            type="submit" 
-                            className={messageState === 'loading' ? "form_button -loading" : (messageState === 'sent' ? "form_button -done" : "form_button")}>
-                        {messageState === 'loading'
-                            ? 
-                                <>
-                                    Sending
-                                    <div className="button_animation">
-                                        <div className="animation_dot"></div>
-                                        <div className="animation_dot"></div>
-                                        <div className="animation_dot"></div>
-                                    </div>
-                                </>
-                            : 
-                                messageState === 'sent'
-                                    ?
-                                        <>
-                                            Sent
-                                            <DoneIcon className="form_button_icon"/>
-                                        </>
-                                    :
-                                        <>
-                                            Submit
-                                            <PlaneIcon className="form_button_icon"/>
-                                        </>
-                        }
-                    </button>
+                    <Button messageState={messageState} handleSubmit={handleSubmit} />
                 </div>
             </form>
         </div>

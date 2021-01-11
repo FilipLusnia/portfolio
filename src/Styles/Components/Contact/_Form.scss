@@ -24,6 +24,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    transition: 0.4s;
 }
 .form_data_field{
     width: 48%;
@@ -58,6 +59,7 @@
     flex-direction: column;
     font-size: 20px;
     font-weight: 500;
+    transition: 0.4s;
 }
 .form_content{
     margin-top: 10px;
@@ -118,12 +120,48 @@
     }
 
     &.-done{
-        background-color: rgb(0, 212, 89);
-        transition: 0.5s;
+        background-color: rgb(255, 187, 0);
         cursor: default;
+        position: relative;
+
+        &:before{
+            height: 100%;
+            width: 50%;
+            content: '';
+            position: absolute;
+            background-color: rgb(0, 212, 89);
+            left: 0;
+            animation: colorGreen 1s;
+        }
+
+        &:after{
+            height: 100%;
+            width: 50%;
+            content: '';
+            position: absolute;
+            background-color: rgb(0, 212, 89);
+            right: 0;
+            animation: colorGreen 1s;
+        }
+
+        @keyframes colorGreen {
+            0% { width: 0% }
+            100% { width: 50% }
+        }
 
         &:hover{
             opacity: 1;
+        }
+
+        .button_sent_info{
+            z-index: 1;
+            animation: writeOnSent 2s;
+
+            @keyframes writeOnSent {
+                0% { opacity: 0; }
+                50% { opacity: 0; }
+                100% { opacity: 1; }
+            }   
         }
     }
 
@@ -179,10 +217,11 @@
     font-weight: 700;
     transition: 1s;
     margin-bottom: 150px;
-    animation: appearSuccessMessage 1.5s linear;
+    animation: revealSuccessMessage 1.5s linear;
 
-    @keyframes appearSuccessMessage {
+    @keyframes revealSuccessMessage {
         0% {opacity: 0; transform: translateY(20px);}
+        70% {opacity: 0; transform: translateY(20px);}
         100% {opacity: 1; transform: translateY(0px);}
     }
 }

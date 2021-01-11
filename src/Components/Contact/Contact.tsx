@@ -1,5 +1,5 @@
 import ContactTop from './ContactTop';
-import Form from './Form';
+import Form from './Form/Form';
 import Footer from '../Footer/Footer';
 
 function Contact() {
