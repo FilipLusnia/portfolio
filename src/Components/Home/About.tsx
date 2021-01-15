@@ -14,7 +14,7 @@ function About() {
         setElementsEmerged(true);
         newObserver.disconnect();
       }
-    }, {threshold: 0.4});
+    }, {threshold: 0.3});
     
     element && newObserver.observe(element);
   }, []);
@@ -27,7 +27,7 @@ function About() {
         <h1 className="about_info_title">{'>'} ABOUT</h1>
         <p className="about_info_description">
           My name's Filip. I live in Warsaw, Poland. I'm dedicated developer, 
-          spending hours on tweaking little things and experimenting with code.<br/>
+          spending hours on tweaking little things and experimenting with code.<br/><br/>
           I treat every project as a challenge and opportunity to learn new stuff.
           The fields I put most pressure on, are:
         </p>

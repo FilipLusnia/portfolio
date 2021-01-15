@@ -17,11 +17,6 @@ function Form() {
     const [messageState, setMessageState] = useState('awaiting');
     const [inputsDisabled, setInputsDisabled] = useState(false);
 
-    const mailService = process.env.REACT_APP_mail_service;
-    const mailTemplate = process.env.REACT_APP_mail_template;
-    const userId = process.env.REACT_APP_user_id;
-
-
     const handleData = (e: any, field: string) => {
         setMessageData({...messageData, [field]: e.target.value})
     };
@@ -47,11 +42,11 @@ function Form() {
         if(!generalError && (messageState)){
             setInputsDisabled(true);
             setMessageState('loading');
-            emailjs.send(`${mailService}`, `${mailTemplate}`,{
+            emailjs.send(`${process.env.REACT_APP_mail_service}`, `${process.env.REACT_APP_mail_template}`,{
                 name: messageData.nameValue,
                 email: messageData.emailValue,
                 text: messageData.textValue
-            }, `${userId}`)
+            }, `${process.env.REACT_APP_user_id}`)
             .then(() => {
                 setMessageData({
                     nameValue: '',

@@ -130,8 +130,8 @@
             content: '';
             position: absolute;
             background-color: rgb(0, 212, 89);
-            left: 0;
             animation: colorGreen 1s;
+            left: 50%;
         }
 
         &:after{
@@ -140,8 +140,8 @@
             content: '';
             position: absolute;
             background-color: rgb(0, 212, 89);
-            right: 0;
             animation: colorGreen 0.8s;
+            right: 50%;
         }
 
         @keyframes colorGreen {

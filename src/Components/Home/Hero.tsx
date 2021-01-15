@@ -13,8 +13,8 @@ function Hero() {
           </p>
         </div>
         <div className="hero_img_container">
-            <img src={heroleft} alt="hero-img" className="hero_img -left"></img>
-            <img src={heroright} alt="hero-img" className="hero_img -right"></img>
+            <img src={heroleft} alt="hero-img" className="hero_img -left"/>
+            <img src={heroright} alt="hero-img" className="hero_img -right"/>
         </div>
     </div>
   );
