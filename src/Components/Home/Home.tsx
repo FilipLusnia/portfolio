@@ -1,14 +1,20 @@
+import React, { Suspense } from 'react';
+
 import Hero from './Hero';
-import About from './About';
-import Showcase from './Showcase';
 import Footer from '../Footer/Footer';
+const About = React.lazy(() => import('./About'));
+const Showcase = React.lazy(() => import('./Showcase'));
 
 function Home() {
   return (
     <>  
       <Hero/>
-      <About/>
-      <Showcase/>
+      <Suspense fallback={<p>Ładowanie...</p>}>
+        <About/>
+      </Suspense>
+      <Suspense fallback={<p>Ładowanie...</p>}>
+        <Showcase/>
+      </Suspense>
       <Footer/>
     </>
   );
