@@ -1,11 +1,12 @@
-import React, { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
+import Fallback from './Components/Fallback';
 import ScrollToTop from './Components/ScrollToTop';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
-const Projects = React.lazy(() => import('./Components/Projects/Projects'));
-const Contact = React.lazy(() => import('./Components/Contact/Contact'));
+const Projects = lazy(() => import('./Components/Projects/Projects'));
+const Contact = lazy(() => import('./Components/Contact/Contact'));
 
 function App() {
   
@@ -18,7 +19,7 @@ function App() {
     <Router>
       <Header/>
       <ScrollToTop>
-        <Suspense fallback={<p>Ładowanie...</p>}>
+        <Suspense fallback={<Fallback/>}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/projects" component={Projects} />

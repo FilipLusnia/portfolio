@@ -6,7 +6,7 @@ function Header() {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [animationStop, setAnimationStop] = useState<any>({maxWidth: "60px"});
   const [linkState, setLinkState] = useState<any>({display: 'none'});
-  const [blockMenu, setBlockMenu] = useState(false);
+  const [blockMenu, setBlockMenu] = useState(true);
   const headerRef = useRef<any>(null);
 
   const holdMenuState = () => {
@@ -21,8 +21,11 @@ function Header() {
   }
 
   useEffect(() => {
-    // prevents menu from animating on page load ("fold" animation)
-    setTimeout(()=> {setAnimationStop(null)}, 600); 
+    // prevents menu from animating on page load ("fold" animation) and from opening before content is loaded
+    setTimeout(()=> {
+      setAnimationStop(null) ;
+      setBlockMenu(false);
+    }, 600); 
 
     // removes links from menu when not visible
     isMenuActive 

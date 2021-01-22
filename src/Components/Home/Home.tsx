@@ -1,18 +1,17 @@
-import React, { Suspense } from 'react';
+import { lazy, Suspense, memo } from 'react';
 
+import Fallback from '../Fallback';
 import Hero from './Hero';
 import Footer from '../Footer/Footer';
-const About = React.lazy(() => import('./About'));
-const Showcase = React.lazy(() => import('./Showcase'));
+const About = lazy(() => import('./About'));
+const Showcase = lazy(() => import('./Showcase'));
 
 function Home() {
   return (
     <>  
       <Hero/>
-      <Suspense fallback={<p>Ładowanie...</p>}>
+      <Suspense fallback={<Fallback/>}>
         <About/>
-      </Suspense>
-      <Suspense fallback={<p>Ładowanie...</p>}>
         <Showcase/>
       </Suspense>
       <Footer/>
@@ -20,4 +19,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default memo(Home);

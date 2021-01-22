@@ -1,5 +1,5 @@
-import heroleft from '../../Resources/hero-left.png';
-import heroright from '../../Resources/hero-right.png';
+import heroleft from '../../Resources/hero-left.jpg';
+import heroright from '../../Resources/hero-right.jpg';
 
 function Hero() {
   return (

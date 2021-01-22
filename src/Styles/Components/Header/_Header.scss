@@ -7,6 +7,12 @@
     box-sizing: border-box;
     background: none;
     height: 0;
+    animation: revealOnPageLoad 0.6s linear;
+
+    @keyframes revealOnPageLoad {
+        0% { visibility: hidden; opacity: 0; };
+        100% { visibility: visible; opacity: 1; };
+    }
 }
 
 .header{
@@ -33,16 +39,6 @@
     @keyframes unfold {
         0% { width: 60px };
         100% { width: 410px };
-    }
-    @keyframes foldOnPhone {
-        0% { width: 100%; height: 100vw; };
-        50% { width: 60px; height: 100vw; };
-        100% { width: 60px };    
-    }
-    @keyframes unfoldOnPhone {
-        0% { width: 60px; height: 60px;};
-        50% { width: 60px; height: 100vw; };
-        100% { width: 100%; height: 100vw; };
     }
 }
 
@@ -144,7 +140,7 @@
     cursor: pointer;
     overflow: hidden;
     z-index: 1;
-    transition: 0.1s;
+    transition: 0.12s;
 
     &.-active{
         .hamburger-inner {

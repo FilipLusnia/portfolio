@@ -9,6 +9,7 @@ $baseBlack: #202020;
 $baseBorderRadius: 3px;
 
 //scss Components
+@import './Components/Fallback';
 @import './Components//Header/Header';
 @import './Components/Home/Hero';
 @import './Components/Home/About';
