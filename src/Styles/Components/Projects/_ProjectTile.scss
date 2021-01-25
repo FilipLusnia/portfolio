@@ -1,0 +1,51 @@
+.project_tile{
+    background-color: red;
+    width: 350px;
+    height: 200px;
+    border-radius: 5px;
+    margin: 25px 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    perspective: 1000px; 
+
+    &:hover{
+        .project_inner_tile{
+            transition: none;
+            visibility: visible;
+            opacity: 0.9;
+            animation: revealInnerTile 0.3s;
+
+            @keyframes revealInnerTile {
+                0% {opacity: 0;}
+                100% {opacity: 0.9;}
+            }
+        }
+    }
+
+    .project_inner_tile{
+        width: 80%;
+        height: 80%;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $baseBlack;
+        color: #ffffff;
+        transition: 0.3s linear;
+        visibility: hidden;
+        opacity: 0;
+        animation: hideInnerTile 0.3s;
+
+        @keyframes hideInnerTile {
+            0% {opacity: 0.9; visibility: visible;}
+            100% {opacity: 0; visibility: hidden;}
+        }
+
+        p{
+            font-size: 30px;
+        }
+    }
+}

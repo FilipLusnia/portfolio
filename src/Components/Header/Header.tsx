@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 
 function Header() {
 
-  const [isMenuActive, setIsMenuActive] = useState(false);
-  const [animationStop, setAnimationStop] = useState<any>({maxWidth: "60px"});
-  const [linkState, setLinkState] = useState<any>({display: 'none'});
-  const [blockMenu, setBlockMenu] = useState(true);
+  const [isMenuActive, setIsMenuActive] = useState(false); 
+  const [animationStop, setAnimationStop] = useState<any>({maxWidth: "60px"}); //prevents animation on page load
+  const [linkState, setLinkState] = useState<any>({display: 'none'}); //removes menu links when not visible
+  const [blockMenu, setBlockMenu] = useState(true); //stops menu spam
   const headerRef = useRef<any>(null);
 
   const holdMenuState = () => {
@@ -34,10 +34,8 @@ function Header() {
 
     const handleClick = (e: MouseEvent) => {
       e.preventDefault();
-      if(headerRef.current.contains(e.target)) {
-        return;
-      }
-      setIsMenuActive(false);
+      if(headerRef.current.contains(e.target)) return;
+      !blockMenu && setIsMenuActive(false);
     }
     
     isMenuActive && document.addEventListener("mousedown", handleClick);
@@ -45,7 +43,7 @@ function Header() {
     return () => {
       document.removeEventListener("mousedown", handleClick);
     }
-  }, [isMenuActive]);
+  }, [isMenuActive, blockMenu]);
 
   return (
     <div className="header_container"> 
