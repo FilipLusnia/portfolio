@@ -1,14 +1,15 @@
 import { useState, useRef } from 'react';
 
-function ProjectsList() {
+type PropsTypes = {name: string, thumbnail: string, id: string};
+function ProjectTile({name, thumbnail, id}: PropsTypes) {
 
   const [xCoord, setXCoord] = useState(0);
   const [yCoord, setYCoord] = useState(0);
   const rect = useRef<any>();
 
   const handleMove = (e: any) => {
-    setXCoord((rect.current.offsetLeft + rect.current.offsetWidth/2 - e.pageX)/7);
-    setYCoord((rect.current.offsetTop + rect.current.offsetHeight/2 - e.pageY)/5);
+    setXCoord((rect.current.offsetLeft + rect.current.offsetWidth/2 - e.pageX)/10);
+    setYCoord((rect.current.offsetTop + rect.current.offsetHeight/2 - e.pageY)/6);
   }
 
   const handleLeave = () => {
@@ -18,12 +19,13 @@ function ProjectsList() {
 
   return (
     <div ref={rect} onMouseMove={e => handleMove(e)} onMouseLeave={handleLeave} className="project_tile">
-        <div style={{transform: ` rotateX(${yCoord}deg) rotateY(${xCoord}deg)`}} className="project_inner_tile">
-            <p>Sample project</p>
+        <img src={thumbnail} alt={'thumbnail'}/>
+        <div style={{transform: `rotateX(${yCoord}deg) rotateY(${xCoord}deg)`}} className="project_inner_tile">
+            <p>{name}</p>
         </div>
     </div>
   );
 }
   
-export default ProjectsList;
+export default ProjectTile;
   

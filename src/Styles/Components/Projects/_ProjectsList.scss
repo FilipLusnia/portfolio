@@ -1,6 +1,6 @@
 .projects_list_container{
     width: 100%;
-    min-height: 700px;
+    min-height: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +9,6 @@
 .projects_list_title{
     font-size: 60px;
     font-weight: 700;
-    margin-bottom: 20px;
     margin-top: 140px;
     text-align: center;
     animation: showOnStart 1s, subtleMove 1.5s;
@@ -21,8 +20,8 @@
     }
 
     @keyframes subtleMove{
-        0% {transform: translateY(-50px)}
-        100% {transform: translateY(0px)}
+        0% {transform: translateY(-50px);}
+        100% {transform: translateY(0px);}
     }
 }
 
@@ -30,5 +29,92 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 50px;
+    margin: 20px 0 70px;
+}
+
+.projects_list_filters_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    animation: showOnStart 2s;
+    height: auto;
+    margin-top: 70px;
+
+    .projects_list_filters{
+        display: flex;
+
+        p{
+            font-weight: 700;
+            font-size: 20px;
+            margin: 15px 15px;
+            cursor: pointer;
+            transition: 0.2s;
+            padding-bottom: 3px;
+            position: relative;
+            
+            &:hover{
+                transform: translateY(2px);
+            }
+
+            &:before{
+                content: "";
+                bottom: 0;
+                height: 2px;
+                width: 0%;
+                background-color: $baseBlack;
+                position: absolute;
+                transition: 0.5s;
+            }
+        }
+        
+        .picked_filter{
+            animation: showFilterBorder 1s;
+            &:before{width: 100%;}
+
+            @keyframes showFilterBorder{
+                0% { &:before{width: 0%;} }
+                100% { &:before{width: 100%;} }
+            }
+        }
+    }
+}
+
+.projects_list_fallback{
+    padding-top: 180px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    animation: revealDots 0.4s;
+
+    @keyframes revealDots {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }  
+
+    .projects_dot{
+        width: 15px;
+        height: 15px;
+        background-color: $baseBlack;
+        border-radius: 50%;
+        animation: projectsLoadingDots 1s infinite;
+
+        @keyframes projectsLoadingDots {
+            0% { transform: translateY(0px); }
+            40% { transform: translateY(-10px); }
+            90% { transform: translateY(0px); }
+            100% { transform: translateY(0px); }
+        }
+
+        &:nth-child(2){
+            animation-delay: 0.2s;
+            margin-left: 5px;
+        }
+        &:last-child{
+            animation-delay: 0.4s; 
+            margin-left: 5px;
+        }
+    }
 }
