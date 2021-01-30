@@ -21,6 +21,10 @@
         cursor: pointer;
         font-family: 'Barlow Semi Condensed', sans-serif;
         outline: none;
+        -webkit-user-select: none;      
+        -moz-user-select: none; 
+        -ms-user-select: none; 
+        user-select: none;
 
         &:hover{
             transform: scale(1.1);
