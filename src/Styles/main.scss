@@ -9,16 +9,18 @@ $baseBlack: #202020;
 $baseBorderRadius: 3px;
 
 //scss Components
+@import './Components/NoMatch';
 @import './Components/Fallback';
 @import './Components//Header/Header';
+@import './Components/Footer/Footer';
 @import './Components/Home/Hero';
 @import './Components/Home/About';
 @import './Components/Home/Showcase';
-@import './Components/Footer/Footer';
 @import './Components/Contact/ContactTop';
 @import './Components/Contact/Form';
-@import './Components/Projects/ProjectsList';
+@import './Components/Projects/Projects';
 @import './Components/Projects/ProjectTile';
+@import './Components/Projects/ProjectDetails';
 
 
 body {

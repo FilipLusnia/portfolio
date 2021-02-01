@@ -12,7 +12,7 @@ function Showcase() {
         setElementsEmerged(true);
         newObserver.disconnect();
       }
-    }, {threshold: 0.3});
+    }, {threshold: 0.4});
     
     element && newObserver.observe(element);
   }, []);

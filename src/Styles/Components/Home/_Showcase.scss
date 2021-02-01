@@ -77,15 +77,15 @@
         .tile_description{
             text-align: center;
             transform: rotateX(90deg) translateY(180px);
-            max-width: 60%;
+            max-width: 65%;
             transition: 0.5s;
-            font-size: 22px;
+            font-size: 23px;
             position: absolute;
             opacity: 0;
 
             span{
                 animation: pulse 2.5s infinite ease-in;
-                font-size: 18px;
+                font-size: 16px;
                 height: 30px;
                 display: flex;
                 align-items: center;
@@ -93,7 +93,7 @@
 
                 .project_arrow{
                     margin-left: 5px;
-                    height: 20px;
+                    height: 17px;
                     width: auto;
                     fill:rgb(255, 255, 255);
                 }
