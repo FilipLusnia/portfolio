@@ -7,24 +7,22 @@ function Projects() {
   const history = useHistory();
   const [ projectThumbs, setProjectThumbs ] = useState<Array<any>>();
   const [ filteredGroup, setFilteredGroup ] = useState('all');
-  const [ selectedProject, setSelectedProject ] = useState<Array<any>>();
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_projects_endpoint}`)
     .then((resp) => resp.json())
-    .then(data => setProjectThumbs(data));
-  }, [])
+    .then(data => setProjectThumbs(data))
+  }, []);
 
-  const fetchProject = (id: string) => {
-    history.push('/projects/projectDetails');
-    fetch(`${process.env.REACT_APP_projects_endpoint}/${id}`)
-    .then((resp) => resp.json())
-    .then(data => setSelectedProject(data));
+  const goToProject = (id: string) => {
+    history.push(`/projects/${id}`);
   }
   
   return (
     <div className="projects_container">  
       <h1 className="projects_list_title">{'>'} MY WORKS</h1>
+      <p className="projects_list_subtitle">List of featured projects - give them a look!</p>
+      
       <section className="projects_list_filters_container">
         <h1>Filter projects by technology:</h1>
         <div className="projects_list_filters">
@@ -41,11 +39,11 @@ function Projects() {
             .filter(e => e.data.type === filteredGroup || filteredGroup === 'all')
             .map(e => {
               return <ProjectTile 
-                fetchProject={fetchProject}
+                goToProject={goToProject}
                 id={e.id} 
                 name={e.data.name} 
                 thumbnail={e.data.thumbnail} 
-                key={e.data.name}/>
+                key={e.id}/>
             })
           }
         </div>

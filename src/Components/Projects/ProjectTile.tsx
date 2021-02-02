@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 
-type PropsTypes = {name: string, thumbnail: string, id: string, fetchProject: Function};
-function ProjectTile({name, thumbnail, id, fetchProject}: PropsTypes) {
+type PropsTypes = {name: string, thumbnail: string, id: string, goToProject: Function};
+function ProjectTile({name, thumbnail, id, goToProject}: PropsTypes) {
 
   const [xCoord, setXCoord] = useState(0);
   const [yCoord, setYCoord] = useState(0);
@@ -22,7 +22,7 @@ function ProjectTile({name, thumbnail, id, fetchProject}: PropsTypes) {
       ref={rect} 
       onMouseMove={e => handleMove(e)} 
       onMouseLeave={handleLeave} 
-      onClick={() => fetchProject(id)} 
+      onClick={() => goToProject(id)} 
       className="project_tile"
     >
         <img src={thumbnail} alt={'thumbnail'}/>

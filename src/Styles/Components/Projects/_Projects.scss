@@ -10,6 +10,7 @@
     font-size: 60px;
     font-weight: 700;
     margin-top: 140px;
+    margin-bottom: 15px;
     text-align: center;
     cursor: default;
     animation: showOnStart 1s, subtleMove 1.5s;
@@ -26,11 +27,19 @@
     }
 }
 
+.projects_list_subtitle{
+    font-size: 23px;
+    line-height: 1.3;
+    animation: showOnStart 1.5s;
+    cursor: default;
+}
+
 .projects_list{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 20px 0 70px;
+    margin-top: 10px;
+    margin-bottom: 70px;
     min-height: 600px;
 }
 
@@ -39,10 +48,10 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    font-size: 23px;
+    font-size: 19px;
     animation: showOnStart 2s;
     height: auto;
-    margin-top: 70px;
+    margin-top: 40px;
 
     h1{
         cursor: default;
@@ -53,8 +62,8 @@
 
         p{
             font-weight: 700;
-            font-size: 20px;
-            margin: 15px 15px;
+            font-size: 19px;
+            margin: 10px 12px;
             cursor: pointer;
             transition: 0.2s;
             padding-bottom: 4px;
