@@ -1,23 +1,32 @@
-.project_details_container{
+.project_showcase_container{
     min-height: 800px;
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
+.project_showcase{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.project_details{
+    margin-left: 12%;
+}
+
 .project_details_name{
+    display: inline-block;
     font-size: 60px;
     text-transform: uppercase;
     font-weight: 700;
-    margin-top: 180px;
     margin-bottom: 40px;
-    margin-left: 10%;
     cursor: default;
-    animation: showOnStart 1s, subtleMove 1.5s;
+    animation: showOnStart 1.5s, subtleMove 1.5s;
 
     @keyframes showOnStart{
         0% {opacity: 0}
-        45% {opacity: 0}
+        25% {opacity: 0}
         100% {opacity: 1}
     }
 
@@ -30,10 +39,9 @@
 .project_details_description{
     font-size: 23px;
     cursor: default;
-    margin-left: 10%;
-    width: 40%;
+    width: 70%;
     line-height: 1.3;
-    margin-top: 40px;
+    margin-top: 45px;
     overflow: hidden;
     position: relative;
 
@@ -46,10 +54,11 @@
         width: 100%;
         background-color: #ffffff;
         position: absolute;
-        animation: unveilBefore 2s linear;
+        animation: unveilBefore 1.5s linear;
 
         @keyframes unveilBefore{
             0% { transform: translateY(0%); }
+            20% { transform: translateY(0%); }
             100% { transform: translateY(-100%); }
         }
     }
@@ -63,23 +72,22 @@
         width: 100%;
         background-color: #ffffff;
         position: absolute;
-        animation: unveilAfter 2s linear;
+        animation: unveilAfter 1.5s linear;
 
         @keyframes unveilAfter{
             0% { transform: translateY(0%); }
+            20% { transform: translateY(0%); }
             100% { transform: translateY(100%); }
         }
     }
 }
 
 .project_details_tech_title{
-    margin-left: 10%;
     font-size: 19px;
     font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+    margin-bottom: 15px;
     cursor: default;
-    animation: showOnStart 1s, subtleMoveAlt 1.5s;
+    animation: showOnStart 1.5s, subtleMoveAlt 1.5s;
 
     @keyframes subtleMoveAlt{
         0% {transform: translateX(-50px);}
@@ -88,12 +96,9 @@
 }
 
 .project_details_tech{
-    width: 40%;
-    margin-left: 10%;
-    letter-spacing: 1px;
     font-size: 19px;
     cursor: default;
-    animation: showOnStart 1s, subtleMoveAlt2 1.5s;
+    animation: showOnStart 1.5s, subtleMoveAlt2 1.5s;
 
     @keyframes subtleMoveAlt2{
         0% {transform: translateX(50px);}
@@ -116,17 +121,82 @@
 }
 
 .project_details_link{
-    margin-left: 10%;
+    display: inline-block;
     margin-top: 40px;
     font-size: 19px;
     color: $baseBlack;
     text-decoration: underline;
     font-weight: 500;
-    animation: showOnStart 1s;
+    animation: showOnStart 1.5s;
     transition: 0.2s;
 
     &:hover{
         opacity: 0.2;
+    }
+}
+
+.project_snapshots{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 40%;
+    height: 100%;
+    padding-right: 70px;
+
+    .snapshot{
+        width: 90%;
+        border-radius: 10px;
+        position: absolute;
+        box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.6);
+
+        &:first-child{
+            transform: skewY(5deg) translate(0px, -50px);
+        }
+
+        &:nth-child(2){
+            transform: skewY(5deg) translate(-60px, 10px);
+        }
+
+        &:nth-child(3){
+            transform: skewY(5deg) translate(-120px, 70px);
+        }
+
+        &.-loaded{
+            
+            &:nth-child(1){
+                animation: revealFirstSnapshot 3s; 
+                transform: skewY(5deg) translate(0px, 0px);
+
+                @keyframes revealFirstSnapshot {
+                    0% {opacity: 0;}
+                    20% {opacity: 0; transform: skewY(5deg) translate(0px, -50px);}
+                    40% {opacity: 1; transform: skewY(5deg) translate(0px, 0px);}
+                }
+            }
+
+            &:nth-child(2){
+                animation: revealSecondSnapshot 3s; 
+                transform: skewY(5deg) translate(-60px, 60px);
+
+                @keyframes revealSecondSnapshot {
+                    0% {opacity: 0;}
+                    40% {opacity: 0; transform: skewY(5deg) translate(-60px, 10px);}
+                    60% {opacity: 1; transform: skewY(5deg) translate(-60px, 60px);}
+                }
+            }
+    
+            &:nth-child(3){
+                animation: revealThirdSnapshot 3s; 
+                transform: skewY(5deg) translate(-120px, 120px);
+
+                @keyframes revealThirdSnapshot {
+                    0% {opacity: 0;}
+                    60% {opacity: 0; transform: skewY(5deg) translate(-120px, 70px);}
+                    80% {opacity: 1; transform: skewY(5deg) translate(-120px, 120px);}
+                }
+            }
+        }
     }
 }
 

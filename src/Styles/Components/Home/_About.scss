@@ -62,6 +62,7 @@
     transition: 0.6s;
     animation: pulseAtribute 1.5s infinite linear;
     background-color: #ffffff;
+    will-change: transform;
 
     @keyframes pulseAtribute {
         0% {border: 1px solid $baseBlack;}

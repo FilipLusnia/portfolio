@@ -21,7 +21,7 @@
     background-color: #ffffff;
     display: flex;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(20, 20, 20, 0.02);
     overflow: hidden;
     animation: fold 0.6s cubic-bezier(1,-0.4,.5,1);
@@ -49,6 +49,8 @@
 }
 
 .nav_item{
+    will-change: transform;
+    user-select: none;
     text-decoration: none;
     color: $baseBlack;
     margin: 0 25px;
