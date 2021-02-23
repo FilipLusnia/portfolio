@@ -1,28 +1,33 @@
 .project_showcase_container{
-    min-height: 800px;
     display: flex;
-    flex-direction: column;
-    position: relative;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .project_showcase{
     display: flex;
     align-items: center;
-    height: 100vh;
+    width: 100%;
 }
 
 .project_details{
     margin-left: 12%;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20%;
 }
 
 .project_details_name{
-    display: inline-block;
     font-size: 60px;
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 40px;
     cursor: default;
-    animation: showOnStart 1.5s, subtleMove 1.5s;
+    will-change: transform;
+    animation: showOnStart 2s, subtleMove 2s;
 
     @keyframes showOnStart{
         0% {opacity: 0}
@@ -31,15 +36,15 @@
     }
 
     @keyframes subtleMove{
-        0% {transform: translateY(-50px);}
-        100% {transform: translateY(0px);}
+        0% { transform: translateY(-50px); }
+        100% { transform: translateY(0px); }
     }
 }
 
 .project_details_description{
     font-size: 23px;
     cursor: default;
-    width: 70%;
+    width: 60%;
     line-height: 1.3;
     margin-top: 45px;
     overflow: hidden;
@@ -54,7 +59,7 @@
         width: 100%;
         background-color: #ffffff;
         position: absolute;
-        animation: unveilBefore 1.5s linear;
+        animation: unveilBefore 2s;
 
         @keyframes unveilBefore{
             0% { transform: translateY(0%); }
@@ -72,7 +77,7 @@
         width: 100%;
         background-color: #ffffff;
         position: absolute;
-        animation: unveilAfter 1.5s linear;
+        animation: unveilAfter 2s;
 
         @keyframes unveilAfter{
             0% { transform: translateY(0%); }
@@ -84,10 +89,10 @@
 
 .project_details_tech_title{
     font-size: 19px;
-    font-weight: 700;
-    margin-bottom: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
     cursor: default;
-    animation: showOnStart 1.5s, subtleMoveAlt 1.5s;
+    animation: showOnStart 2s, subtleMoveAlt 2s;
 
     @keyframes subtleMoveAlt{
         0% {transform: translateX(-50px);}
@@ -98,7 +103,7 @@
 .project_details_tech{
     font-size: 19px;
     cursor: default;
-    animation: showOnStart 1.5s, subtleMoveAlt2 1.5s;
+    animation: showOnStart 2s, subtleMoveAlt2 2s;
 
     @keyframes subtleMoveAlt2{
         0% {transform: translateX(50px);}
@@ -120,32 +125,70 @@
     }
 }
 
-.project_details_link{
-    display: inline-block;
+.project_details_demo{
     margin-top: 40px;
     font-size: 19px;
     color: $baseBlack;
     text-decoration: underline;
     font-weight: 500;
-    animation: showOnStart 1.5s;
+    animation: showOnStart 2s;
     transition: 0.2s;
+    line-height: 1.1;
+
+    &:hover{
+        opacity: 0.2;
+    }
+
+    &.-unavialable{
+        text-decoration: none;
+        cursor: default;
+        
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+
+.project_details_source_container{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    animation: showOnStart 2s;
+    transition: 0.2s;
+    cursor: pointer;
 
     &:hover{
         opacity: 0.2;
     }
 }
 
+.project_details_source_icon{
+    height: 20px;
+    width: auto;
+    fill: $baseBlack;
+    margin-right: 5px;
+}
+
+.project_details_source{
+    font-size: 15px;
+    color: $baseBlack;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
 .project_snapshots{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     position: relative;
     width: 40%;
     height: 100%;
-    padding-right: 70px;
+    padding-right: 3%;
 
     .snapshot{
-        width: 90%;
+        max-width: 90%;
+        max-height: 60%;
         border-radius: 10px;
         position: absolute;
         box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.6);
@@ -155,11 +198,11 @@
         }
 
         &:nth-child(2){
-            transform: skewY(5deg) translate(-60px, 10px);
+            transform: skewY(5deg) translate(-70px, 10px);
         }
 
         &:nth-child(3){
-            transform: skewY(5deg) translate(-120px, 70px);
+            transform: skewY(5deg) translate(-140px, 70px);
         }
 
         &.-loaded{
@@ -177,23 +220,23 @@
 
             &:nth-child(2){
                 animation: revealSecondSnapshot 3s; 
-                transform: skewY(5deg) translate(-60px, 60px);
+                transform: skewY(5deg) translate(-70px, 60px);
 
                 @keyframes revealSecondSnapshot {
                     0% {opacity: 0;}
-                    40% {opacity: 0; transform: skewY(5deg) translate(-60px, 10px);}
-                    60% {opacity: 1; transform: skewY(5deg) translate(-60px, 60px);}
+                    40% {opacity: 0; transform: skewY(5deg) translate(-70px, 10px);}
+                    60% {opacity: 1; transform: skewY(5deg) translate(-70px, 60px);}
                 }
             }
     
             &:nth-child(3){
                 animation: revealThirdSnapshot 3s; 
-                transform: skewY(5deg) translate(-120px, 120px);
+                transform: skewY(5deg) translate(-140px, 120px);
 
                 @keyframes revealThirdSnapshot {
                     0% {opacity: 0;}
-                    60% {opacity: 0; transform: skewY(5deg) translate(-120px, 70px);}
-                    80% {opacity: 1; transform: skewY(5deg) translate(-120px, 120px);}
+                    60% {opacity: 0; transform: skewY(5deg) translate(-140px, 70px);}
+                    80% {opacity: 1; transform: skewY(5deg) translate(-140px, 120px);}
                 }
             }
         }

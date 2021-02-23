@@ -3,7 +3,7 @@ import { lazy, Suspense, memo } from 'react';
 import Fallback from '../Fallback';
 import Hero from './Hero';
 const About = lazy(() => import('./About'));
-const Showcase = lazy(() => import('./Showcase'));
+const MoreAbout = lazy(() => import('./MoreAbout'));
 
 function Home() {
   return (
@@ -11,7 +11,7 @@ function Home() {
       <Hero/>
       <Suspense fallback={<Fallback/>}>
         <About/>
-        <Showcase/>
+        <MoreAbout/>
       </Suspense>
     </>
   );

@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 function Header() {
 
   const [isMenuActive, setIsMenuActive] = useState(false); 
-  const [animationStop, setAnimationStop] = useState<any>({maxWidth: "60px"}); //prevents animation on page load
   const [linkState, setLinkState] = useState<any>({display: 'none'}); //removes menu links when not visible
   const [blockMenu, setBlockMenu] = useState(true); //stops menu spam
+  const [animationStop, setAnimationStop] = useState<any>({maxWidth: "60px"}); //prevents animation on page load
   const headerRef = useRef<any>(null);
 
   const holdMenuState = () => {

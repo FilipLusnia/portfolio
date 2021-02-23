@@ -1,7 +1,5 @@
 function Footer() {
-    const date = new Date();
-    const year = date.getFullYear();
-    // eslint-disable jsx-a11y/anchor-is-valid
+    const year = new Date().getFullYear();
 
     return (
         <div className="footer_container">

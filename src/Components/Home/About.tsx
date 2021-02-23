@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+
 import photo from '../../Resources/profile-photo.jpg';
 import { ReactComponent as DesignIcon } from '../../Resources/sketch.svg';
 import { ReactComponent as RwdIcon } from '../../Resources/responsive_design.svg';
@@ -8,20 +9,20 @@ function About() {
 
   const [elementsEmerged, setElementsEmerged] = useState(false);
 
-  const anchor = useCallback(element => {
+  const anchor = useCallback(div => {
     const newObserver = new IntersectionObserver(entries => {
       if(entries[0].isIntersecting){
         setElementsEmerged(true);
         newObserver.disconnect();
       }
-    }, {threshold: 0.3});
+    }, {threshold: 0.45});
     
-    element && newObserver.observe(element);
+    div && newObserver.observe(div);
   }, []);
 
   return (
     <div className="about_container" ref={anchor}>
-      <img src={photo} alt="profile img" className={elementsEmerged ? "about_photo -emerged" : "about_photo"}/>
+      <img src={photo} loading='lazy' alt="profile img" className={elementsEmerged ? "about_photo -emerged" : "about_photo"}/>
       
       <div className={elementsEmerged ? "about_info_container -emerged" : "about_info_container"}>
         <h1 className="about_info_title">{'>'} ABOUT</h1>
@@ -29,7 +30,7 @@ function About() {
           My name's Filip. I live in Warsaw, Poland. I'm dedicated developer, 
           spending hours on tweaking little things and experimenting with code.<br/><br/>
           I treat every project as a challenge and opportunity to learn new stuff.
-          The fields I put most pressure on, are:
+          The fields I put most pressure on while programming, are:
         </p>
 
         <div className="about_attributes_container">
@@ -54,7 +55,7 @@ function About() {
             <GranularityIcon className="about_attribute_img"/>
             <h1 className="about_attribute_title">GRANULARITY</h1>
             <p className="about_attribute_description">
-              I have a huge attention to detail. 
+              I have an unusual attention to detail. 
               I never assume my work is done until everything is tweaked and polished.
             </p>
           </div>

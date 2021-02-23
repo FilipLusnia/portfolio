@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;300;500&display=swap');
 
-//colors
+//variables
 $baseBlack: #202020;
 $baseBorderRadius: 3px;
 
@@ -15,15 +15,14 @@ $baseBorderRadius: 3px;
 @import './Components/Footer/Footer';
 @import './Components/Home/Hero';
 @import './Components/Home/About';
-@import './Components/Home/Showcase';
+@import './Components/Home/MoreAbout';
 @import './Components/Contact/ContactTop';
 @import './Components/Contact/Form';
 @import './Components/Projects/Projects';
 @import './Components/Projects/ProjectTile';
 @import './Components/Projects/ProjectDetails';
 
-
-body {
+body{
     background-color: #f3f3f3;
     display: flex;
     flex-direction: column;

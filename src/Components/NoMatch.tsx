@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import { ReactComponent as ProjectArrow } from '../Resources/project-arrow.svg';
+import { ReactComponent as ProjectArrow } from '../Resources/arrow.svg';
 
 function NoMatch(){
     const history = useHistory();

@@ -1,8 +1,8 @@
 .about_container{
-    min-height: 700px;
+    min-height: 750px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .about_photo{
@@ -10,14 +10,14 @@
     width: 350px;
     margin: 90px;
     border-radius: 50%;
+    padding: 10px;
+    background-color: $baseBlack;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.507);
     transition: 1.5s;
     opacity: 0;
-    transform: translateY(5%);
 
     &.-emerged{
         opacity: 1;
-        transform: translateY(0);
     }
 }
 .about_info_container{
@@ -27,7 +27,8 @@
     text-align: center;
     transition: 0.8s ease;
     opacity: 0;
-    transform: translateY(25%);
+    transform: translateY(10%);
+    will-change: transform;
 
     &.-emerged{
         opacity: 1;
@@ -47,7 +48,6 @@
     cursor: default;
 }
 
-
 .about_attributes_container{
     display: flex;
 }
@@ -62,7 +62,6 @@
     transition: 0.6s;
     animation: pulseAtribute 1.5s infinite linear;
     background-color: #ffffff;
-    will-change: transform;
 
     @keyframes pulseAtribute {
         0% {border: 1px solid $baseBlack;}
@@ -127,7 +126,7 @@
     }
 
     &:last-child{
-        animation: wiggleLastAttribute 6s infinite, pulseAtribute 1.5s infinite linear;
+        animation: wiggleLastAttribute 5s infinite, pulseAtribute 1.5s infinite linear;
 
         @keyframes wiggleLastAttribute {
             0% {}

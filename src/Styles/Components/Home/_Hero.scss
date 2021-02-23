@@ -34,6 +34,22 @@
             font-weight: 700;
             font-family: 'Barlow Semi Condensed', sans-serif;
             text-transform: uppercase;
+            padding-left: 2px;
+            border-right: 2px solid $baseBlack;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typewriter 2.5s steps(18) 1.5s both, blinkTextCursor 0.5s infinite;
+
+            @keyframes typewriter{
+                from{width: 0em;}
+                to{width: 10em;}
+              }
+              @keyframes blinkTextCursor{
+                0%{border-right-color: $baseBlack;}
+                50%{border-right-color: $baseBlack;}
+                51%{border-right-color: transparent;}
+                100%{border-right-color: transparent;}
+              }
         }
     }
 

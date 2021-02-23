@@ -25,7 +25,7 @@ function ProjectTile({name, thumbnail, id, goToProject}: PropsTypes) {
       onClick={() => goToProject(id)} 
       className="project_tile"
     >
-        <img src={thumbnail} alt='thumbnail'/>
+        <img loading="lazy" src={thumbnail} alt='thumbnail'/>
         <div style={{transform: `rotateX(${yCoord}deg) rotateY(${xCoord}deg)`}} className="project_inner_tile">
             <p>{name}</p>
         </div>

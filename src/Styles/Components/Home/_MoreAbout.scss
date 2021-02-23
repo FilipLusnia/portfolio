@@ -1,0 +1,14 @@
+.more-about_container{
+    min-height: 800px;
+    display: flex;
+    justify-content: center;
+}
+
+.more-about_info_title{
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 50px;
+    cursor: default;
+    will-change: transform;
+}
