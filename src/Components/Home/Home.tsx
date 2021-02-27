@@ -1,7 +1,7 @@
-import { lazy, Suspense, memo } from 'react';
+import { lazy, Suspense } from 'react';
 
-import Fallback from '../Fallback';
 import Hero from './Hero';
+import Fallback from '../Fallback';
 const About = lazy(() => import('./About'));
 const MoreAbout = lazy(() => import('./MoreAbout'));
 
@@ -11,10 +11,12 @@ function Home() {
       <Hero/>
       <Suspense fallback={<Fallback/>}>
         <About/>
+      </Suspense>
+      <Suspense fallback={<Fallback/>}>
         <MoreAbout/>
       </Suspense>
     </>
   );
 }
 
-export default memo(Home);
+export default Home;

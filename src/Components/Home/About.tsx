@@ -8,6 +8,7 @@ import { ReactComponent as GranularityIcon } from '../../Resources/complex.svg';
 function About() {
 
   const [elementsEmerged, setElementsEmerged] = useState(false);
+  const [profileImgSrc, setProfileImgScr] = useState('');
 
   const anchor = useCallback(div => {
     const newObserver = new IntersectionObserver(entries => {
@@ -16,20 +17,29 @@ function About() {
         newObserver.disconnect();
       }
     }, {threshold: 0.45});
+
+    const imageObserver = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        setProfileImgScr(photo);
+        imageObserver.disconnect();
+      }
+    }, {threshold: 0.1});
     
     div && newObserver.observe(div);
+    div && imageObserver.observe(div);
   }, []);
 
   return (
     <div className="about_container" ref={anchor}>
-      <img src={photo} loading='lazy' alt="profile img" className={elementsEmerged ? "about_photo -emerged" : "about_photo"}/>
+      <img src={profileImgSrc} className={elementsEmerged ? "about_photo -emerged" : "about_photo"} alt="profile img"/>
       
       <div className={elementsEmerged ? "about_info_container -emerged" : "about_info_container"}>
         <h1 className="about_info_title">{'>'} ABOUT</h1>
         <p className="about_info_description">
           My name's Filip. I live in Warsaw, Poland. I'm dedicated developer, 
-          spending hours on tweaking little things and experimenting with code.<br/><br/>
-          I treat every project as a challenge and opportunity to learn new stuff.
+          spending hours on tweaking little things and experimenting with code.
+          I strive to provide the best possible solutions and craft creative sites.<br/><br/>
+          I treat every project as a challenge and opportunity to learn something new.
           The fields I put most pressure on while programming, are:
         </p>
 

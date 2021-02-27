@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding-bottom: 25px;
 }
 
 .about_photo{
@@ -38,7 +39,7 @@
 .about_info_title{
     font-size: 60px;
     font-weight: 700;
-    padding-bottom: 50px;
+    margin-bottom: 35px;
     cursor: default;
 }
 .about_info_description{
@@ -83,9 +84,9 @@
     }
 
     &_title{
-        margin-top: 10px;
-        font-size: 25px;
-        margin-bottom: 20px;
+        margin-top: 12px;
+        font-size: 26px;
+        margin-bottom: 18px;
         cursor: default;
         font-weight: 500;
     }

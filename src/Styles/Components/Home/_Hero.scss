@@ -41,8 +41,8 @@
             animation: typewriter 2.5s steps(18) 1.5s both, blinkTextCursor 0.5s infinite;
 
             @keyframes typewriter{
-                from{width: 0em;}
-                to{width: 10em;}
+                0%{width: 0em;}
+                100%{width: 10em;}
               }
               @keyframes blinkTextCursor{
                 0%{border-right-color: $baseBlack;}
