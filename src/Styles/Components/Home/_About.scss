@@ -3,7 +3,26 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding-top: 60px;
     padding-bottom: 25px;
+    position: relative;
+
+    &:before{
+        content: '';
+        top: 0;
+        right: 5%;
+        width: 0%;
+        height: 3px;
+        position: absolute;
+        background-color: $baseBlack;
+        transition: 1s;
+    }
+
+    &.-emerged{
+        &:before{
+            width: 70%;
+        }
+    }
 }
 
 .about_photo{
@@ -11,10 +30,10 @@
     width: 350px;
     margin: 90px;
     border-radius: 50%;
-    padding: 10px;
+    padding: 7px;
     background-color: $baseBlack;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.507);
-    transition: 1.5s;
+    transition: 2s;
     opacity: 0;
 
     &.-emerged{
@@ -26,9 +45,9 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: 0.8s ease;
+    transition: 2s ease;
     opacity: 0;
-    transform: translateY(10%);
+    transform: translateY(8%);
     will-change: transform;
 
     &.-emerged{
@@ -43,7 +62,7 @@
     cursor: default;
 }
 .about_info_description{
-    max-width: 65%;
+    max-width: 75%;
     font-size: 23px;
     line-height: 1.3;
     cursor: default;

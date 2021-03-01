@@ -12,12 +12,29 @@
     margin-bottom: 15px;
     cursor: default;
     will-change: transform;
+    opacity: 0;
+    transform: translateY(-50px);
+
+    &.-emerged{
+        opacity: 1;
+        transform: translateY(0px);
+        animation: showOnStart 1s, subtleMove 1.5s;
+    }
 }
 
 .more-about_info_description{
     font-size: 23px;
+    text-align: center;
     line-height: 1.3;
     cursor: default;
+    opacity: 0;
+    transform: translateY(-50px);
+
+    &.-emerged{
+        opacity: 1;
+        transform: translateY(0px);
+        animation: showOnStart 1.5s;
+    }
 }
 
 .skills_container{
@@ -34,9 +51,11 @@
     border-radius: $baseBorderRadius;
     color: #ffffff;
     text-align: center;
-    transition: 0.4s;
+    transition: 0.3s;
     padding: 0 5px;
     cursor: default;
+    will-change: transform;
+    opacity: 0;
 
     h1{
         font-size: 35px;
@@ -45,6 +64,7 @@
         border-bottom: 3px solid #ffffff;
         padding-bottom: 15px;
         margin: 20px 10% 0;
+        will-change: transform;
     }
 
     .skills_tile_content{
@@ -71,6 +91,102 @@
     &:hover{
         transform: scale(0.97);
     }
+
+    &.-emerged{
+        opacity: 1;
+        animation: revealSkillTile 1s;
+        transform: translateX(0);
+    }
+
+    @keyframes revealSkillTile {
+        0%{ opacity: 0; transform: translateX(-10px); }
+        20%{ opacity: 0; transform: translateX(-10px); }
+        100%{ opacity: 1; transform: translateX(0); }
+    }
+}
+
+.more-about_bottom{
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: end;
+
+    .more-about_bottom_title{
+        font-size: 60px;
+        font-weight: 700;
+        margin: 150px 0 25px;
+        cursor: default;
+        will-change: transform;
+        transition: 1s;
+        opacity: 0;
+        transform: translateX(-20px);
+
+        &.-emerged{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .more-about_bottom_link{
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.3;
+        transition: 0.2s;
+        color: $baseBlack;
+        text-decoration: underline;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateX(-10px);
+
+        &.-emerged{
+            opacity: 1;
+            transform: translateX(0);
+            animation: wiggleBottomLink 2.5s infinite, revealBottomLink 2s;
+    
+            &:hover{
+                opacity: 0.2;
+            }
+        }
+    
+        @keyframes wiggleBottomLink{
+            0% {}
+            92% {transform: none;}
+            94% {transform: translateX(-3px);}
+            96% {transform: translateX(3px);}
+            98% {transform: translateX(-3px);}
+            100% {transform: none;}
+        }
+
+        @keyframes revealBottomLink{
+            0% {opacity: 0; transform: translateX(-40px);}
+            20% {opacity: 0; transform: translateX(-40px);}
+            100% {opacity: 1; transform: translateX(0px);}
+        }
+    }
+    
+    .more-about_bottom_line{
+        background-color: $baseBlack;
+        height: 3px;
+        width: 0;
+        margin-top: 60px;
+        transition: 2s;
+
+        &.-emerged{
+            width: 75vw;
+        }
+    }
+}
+
+@keyframes showOnStart{
+    0% {opacity: 0}
+    45% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@keyframes subtleMove{
+    0% {transform: translateY(-50px)}
+    100% {transform: translateY(0px)}
 }
 
 

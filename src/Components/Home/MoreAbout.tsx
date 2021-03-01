@@ -1,3 +1,5 @@
+import { useCallback, useState, lazy } from 'react';
+
 import { ReactComponent as JsIcon } from '../../Resources/javascript.svg';
 import { ReactComponent as TsIcon } from '../../Resources/typescript.svg';
 import { ReactComponent as ReactIcon } from '../../Resources/react.svg';
@@ -11,102 +13,52 @@ import { ReactComponent as WebpackIcon } from '../../Resources/webpack.svg';
 import { ReactComponent as GraphQlIcon } from '../../Resources/graphql.svg';
 import { ReactComponent as SassIcon } from '../../Resources/sass.svg';
 
+const SkillTile = lazy(() => import('./SkillTile'));
+
 function MoreAbout() {
+
+  const [elementsEmerged, setElementsEmerged] = useState(false);
+  const [bottomEmerged, setBottomEmerged] = useState(false);
+
+  const anchor = useCallback(div => {
+    const newObserver = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        setElementsEmerged(true);
+        newObserver.disconnect();
+      };
+    }, {threshold: 0.15});
+    div && newObserver.observe(div);
+  }, []);
+
+  const secondAnchor = useCallback(div => {
+    const newObserver = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        setBottomEmerged(true);
+        newObserver.disconnect();
+      };
+    }, {threshold: 0.95});
+    div && newObserver.observe(div);
+  }, []);
+
   return (
-    <div className="more-about_container">
-        <h1 className="more-about_info_title">{'>'} SKILLS</h1>
-        <p className="more-about_info_description">Technologies I use for my projects:</p>
-        
-        <div className="skills_container">
+    <div className="more-about_container" ref={anchor}>
+      <h1 className={elementsEmerged ? "more-about_info_title -emerged" : "more-about_info_title"}>{'>'} SKILLS</h1>
+      <p className={elementsEmerged ? "more-about_info_description -emerged" : "more-about_info_description"}>Every developer specializes in certain technologies and knows their way around them.<br/>These are mine fields of expertise:</p>
+      
+      <div className="skills_container">
+        <SkillTile title='LANGUAGES' skills={[{icon: JsIcon, name: 'JavaScript'}, {icon: TsIcon, name: 'TypeScript'}]}/>
+        <SkillTile title='LIBRARIES' skills={[{icon: ReactIcon, name: 'React'}, {icon: ReduxIcon, name: 'Redux'}, {icon: ReactIcon, name: 'React Native'}]}/>
+        <SkillTile title='FRAMEWORKS' skills={[{icon: NextIcon, name: 'Next.js'}]}/>
+        <SkillTile title='GRAPHICS / UI' skills={[{icon: PhotoshopIcon, name: 'Photoshop'}, {icon: LightroomIcon, name: 'Lightroom'}, {icon: FigmaIcon, name: 'Figma'}]}/>
+        <SkillTile title='RUNTIMES' skills={[{icon: NodeIcon, name: 'Node.js'}]}/>
+        <SkillTile title='OTHER' skills={[{icon: GraphQlIcon, name: 'GraphQL'}, {icon: SassIcon, name: 'Sass'}, {icon: WebpackIcon, name: 'Webpack'}]}/>
+      </div>
 
-          <div className="skills_tile">
-            <h1>LANGUAGES</h1>
-            <div className="skills_tile_content">
-              <div>
-                <JsIcon className="skills_icon"/>
-                <p>JavaScript</p>
-              </div>
-              <div>
-                <TsIcon className="skills_icon"/>
-                <p>TypeScript</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="skills_tile">
-            <h1>LIBRARIES</h1>
-            <div className="skills_tile_content">
-              <div>
-                <ReactIcon className="skills_icon"/>
-                <p>React</p>
-              </div>
-              <div>
-                <ReduxIcon className="skills_icon"/>
-                <p>Redux</p>
-              </div>
-              <div>
-                <ReactIcon className="skills_icon"/>
-                <p>React Native</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="skills_tile">
-            <h1>FRAMEWORKS</h1>  
-            <div className="skills_tile_content">
-              <div>
-                <NextIcon className="skills_icon"/>
-                <p>Next.js</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="skills_tile">
-            <h1>GRAPHICS / UI</h1>
-            <div className="skills_tile_content">
-              <div>
-                <PhotoshopIcon className="skills_icon"/>
-                <p>Photoshop</p>
-              </div>
-              <div>
-                <LightroomIcon className="skills_icon"/>
-                <p>Lightroom</p>
-              </div>
-              <div>
-                <FigmaIcon className="skills_icon"/>
-                <p>Figma</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="skills_tile">
-            <h1>RUNTIME</h1>
-            <div className="skills_tile_content">
-              <div>
-                <NodeIcon className="skills_icon"/>
-                <p>Node.js</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="skills_tile">
-            <h1>OTHER</h1>
-            <div className="skills_tile_content">
-              <div>
-                <GraphQlIcon className="skills_icon"/>
-                <p>GraphQL</p>
-              </div>
-              <div>
-                <SassIcon className="skills_icon"/>
-                <p>Sass</p>
-              </div>
-              <div>
-                <WebpackIcon className="skills_icon"/>
-                <p>Webpack</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="more-about_bottom" ref={secondAnchor}>
+        <h1 className={bottomEmerged ? "more-about_bottom_title -emerged" : "more-about_bottom_title"}>WANT TO SEE HOW I HANDLE MY PROJECTS?</h1>
+        <a href='/projects' className={bottomEmerged ? "more-about_bottom_link -emerged" : "more-about_bottom_link"}>GET A GLIMPSE HERE.</a>
+        <div className={bottomEmerged ? "more-about_bottom_line -emerged" :"more-about_bottom_line"}/>
+      </div>
     </div>
   );
 }

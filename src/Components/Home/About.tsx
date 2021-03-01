@@ -11,36 +11,36 @@ function About() {
   const [profileImgSrc, setProfileImgScr] = useState('');
 
   const anchor = useCallback(div => {
-    const newObserver = new IntersectionObserver(entries => {
-      if(entries[0].isIntersecting){
-        setElementsEmerged(true);
-        newObserver.disconnect();
-      }
-    }, {threshold: 0.45});
-
+    
     const imageObserver = new IntersectionObserver(entries => {
       if(entries[0].isIntersecting){
         setProfileImgScr(photo);
         imageObserver.disconnect();
-      }
+      };
     }, {threshold: 0.1});
-    
-    div && newObserver.observe(div);
     div && imageObserver.observe(div);
+    
+    const newObserver = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        setElementsEmerged(true);
+        newObserver.disconnect();
+      };
+    }, {threshold: 0.35});
+    div && newObserver.observe(div);
   }, []);
 
   return (
-    <div className="about_container" ref={anchor}>
+    <div className={elementsEmerged ? "about_container -emerged" : "about_container"} ref={anchor}>
       <img src={profileImgSrc} className={elementsEmerged ? "about_photo -emerged" : "about_photo"} alt="profile img"/>
       
       <div className={elementsEmerged ? "about_info_container -emerged" : "about_info_container"}>
         <h1 className="about_info_title">{'>'} ABOUT</h1>
         <p className="about_info_description">
-          My name's Filip. I live in Warsaw, Poland. I'm dedicated developer, 
+          My name's Filip. I live in Warsaw, Poland.<br/>I'm dedicated developer, 
           spending hours on tweaking little things and experimenting with code.
-          I strive to provide the best possible solutions and craft creative sites.<br/><br/>
+          I strive to provide the best possible solutions in terms of web development and craft eye-catching products.<br/><br/>
           I treat every project as a challenge and opportunity to learn something new.
-          The fields I put most pressure on while programming, are:
+          The fields I put most pressure, are:
         </p>
 
         <div className="about_attributes_container">
