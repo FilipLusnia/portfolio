@@ -25,7 +25,7 @@ function About() {
         setElementsEmerged(true);
         newObserver.disconnect();
       };
-    }, {threshold: 0.35});
+    }, {threshold: 0.3});
     div && newObserver.observe(div);
   }, []);
 
