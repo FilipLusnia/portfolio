@@ -26,7 +26,7 @@ function MoreAbout() {
         setElementsEmerged(true);
         newObserver.disconnect();
       };
-    }, {threshold: 0.15});
+    }, {threshold: 0.1});
     div && newObserver.observe(div);
   }, []);
 
@@ -36,7 +36,7 @@ function MoreAbout() {
         setBottomEmerged(true);
         newObserver.disconnect();
       };
-    }, {threshold: 0.95});
+    }, {threshold: 1});
     div && newObserver.observe(div);
   }, []);
 
@@ -54,8 +54,8 @@ function MoreAbout() {
         <SkillTile title='OTHER' skills={[{icon: GraphQlIcon, name: 'GraphQL'}, {icon: SassIcon, name: 'Sass'}, {icon: WebpackIcon, name: 'Webpack'}]}/>
       </div>
 
-      <div className="more-about_bottom" ref={secondAnchor}>
-        <h1 className={bottomEmerged ? "more-about_bottom_title -emerged" : "more-about_bottom_title"}>WANT TO SEE HOW I HANDLE MY PROJECTS?</h1>
+      <div className="more-about_bottom">
+        <h1 ref={secondAnchor} className={bottomEmerged ? "more-about_bottom_title -emerged" : "more-about_bottom_title"}>WANT TO SEE HOW I HANDLE MY PROJECTS?</h1>
         <a href='/projects' className={bottomEmerged ? "more-about_bottom_link -emerged" : "more-about_bottom_link"}>GET A GLIMPSE HERE.</a>
         <div className={bottomEmerged ? "more-about_bottom_line -emerged" :"more-about_bottom_line"}/>
       </div>

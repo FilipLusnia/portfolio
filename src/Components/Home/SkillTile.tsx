@@ -11,7 +11,7 @@ function SkillTile({skills, title}: PropsTypes) {
         setSkillEmerged(true);
         newSkillObserver.disconnect();
       };
-    }, {threshold: 0.5});
+    }, {threshold: 0.45});
     div && newSkillObserver.observe(div);
   }, []);
 

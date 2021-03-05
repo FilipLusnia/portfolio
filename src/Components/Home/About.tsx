@@ -10,6 +10,13 @@ function About() {
   const [elementsEmerged, setElementsEmerged] = useState(false);
   const [profileImgSrc, setProfileImgScr] = useState('');
 
+  const determineThreshold = () => {
+    if(window.innerWidth < 750){
+      return 0.1;  
+    }
+    return 0.25;
+  }
+
   const anchor = useCallback(div => {
     
     const imageObserver = new IntersectionObserver(entries => {
@@ -17,7 +24,7 @@ function About() {
         setProfileImgScr(photo);
         imageObserver.disconnect();
       };
-    }, {threshold: 0.1});
+    }, {threshold: 0.05});
     div && imageObserver.observe(div);
     
     const newObserver = new IntersectionObserver(entries => {
@@ -25,7 +32,7 @@ function About() {
         setElementsEmerged(true);
         newObserver.disconnect();
       };
-    }, {threshold: 0.3});
+    }, {threshold: determineThreshold()});
     div && newObserver.observe(div);
   }, []);
 
