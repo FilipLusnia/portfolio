@@ -9,7 +9,7 @@ function ProjectTile({name, thumbnail, id, goToProject}: PropsTypes) {
 
   const handleMove = (e: any) => {
     setXCoord((rect.current.offsetLeft + rect.current.offsetWidth/2 - e.pageX)/10);
-    setYCoord((rect.current.offsetTop + rect.current.offsetHeight/2 - e.pageY)/6);
+    setYCoord((rect.current.offsetTop + rect.current.offsetHeight/2 - e.pageY)/5);
   }
 
   const handleLeave = () => {

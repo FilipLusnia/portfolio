@@ -230,3 +230,9 @@
         100% {opacity: 1; transform: translateY(0px);}
     }
 }
+
+@media(max-width: 900px){
+    .form{
+        width: 85%;
+    }
+}

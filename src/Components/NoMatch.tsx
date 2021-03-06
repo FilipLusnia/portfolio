@@ -7,7 +7,7 @@ function NoMatch(){
     return (
         <div className="nomatch_screen">
             <h1>ARE YOU LOST?</h1>
-            <p onClick={() => history.push('/')}>Return to starting page <ProjectArrow className="nomatch_arrow"/></p>
+            <p onClick={() => history.push('/')}>Return to home page <ProjectArrow className="nomatch_arrow"/></p>
         </div>
     );
 };

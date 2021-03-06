@@ -11,10 +11,10 @@ function About() {
   const [profileImgSrc, setProfileImgScr] = useState('');
 
   const determineThreshold = () => {
-    if(window.innerWidth < 750){
+    if(window.innerWidth < 1200){
       return 0.1;  
     }
-    return 0.25;
+    return 0.2;
   }
 
   const anchor = useCallback(div => {

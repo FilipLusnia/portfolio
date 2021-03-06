@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .projects_list_title{
@@ -11,7 +12,6 @@
     font-weight: 700;
     margin-top: 140px;
     margin-bottom: 15px;
-    text-align: center;
     cursor: default;
     will-change: transform;
     animation: showOnStart 1s, subtleMove 1.5s;
@@ -135,5 +135,17 @@
             animation-delay: 0.4s; 
             margin-left: 5px;
         }
+    }
+}
+
+@media(max-width: 900px){
+        
+    .projects_list_title{
+        font-size: 50px;
+    }
+
+    .projects_list_subtitle{
+        font-size: 20px;
+        max-width: 90%;
     }
 }

@@ -95,13 +95,45 @@
     }
 
     img{
-        width: auto;
-        height: auto;
+        width: 100%;
         animation: loadThumbnail 0.3s;
 
         @keyframes loadThumbnail {
             0% {opacity: 0;}
             100% {opacity: 1;}
         }
+    }
+}
+
+@media(max-width: 1100px){
+    .project_tile{
+
+        &:hover{
+            .project_inner_tile{
+                animation: none;
+                transition: 0.1s;
+            }
+        }
+
+        .project_inner_tile{
+            opacity: 1;
+            visibility: visible;
+            width: 70%;
+            height: auto;
+            padding: 20px 10px;
+            box-sizing: border-box;
+            animation: none;
+
+            p{
+                font-size: 27px;
+            }
+        }
+    }
+}
+
+@media(max-width: 700px){
+    .project_tile{
+        width: 80vw;
+        height: 50vw;
     }
 }
