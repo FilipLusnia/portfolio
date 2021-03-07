@@ -10,7 +10,6 @@ $baseBorderRadius: 3px;
 
 //scss Components
 @import './Components/NoMatch';
-@import './Components/Fallback';
 @import './Components//Header/Header';
 @import './Components/Footer/Footer';
 @import './Components/Home/Hero';
@@ -40,13 +39,14 @@ body{
 }
 
 ::-webkit-scrollbar {
-    width: 7px;
+    width: 8px;
 }
 ::-webkit-scrollbar-track {
     background: transparent;
 }
 ::-webkit-scrollbar-thumb {
     background: $baseBlack;
+    border-radius: $baseBorderRadius;
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #666666;

@@ -43,11 +43,10 @@ function About() {
       <div className={elementsEmerged ? "about_info_container -emerged" : "about_info_container"}>
         <h1 className="about_info_title">{'>'} ABOUT</h1>
         <p className="about_info_description">
-          My name's Filip. I live in Warsaw, Poland.<br/>I'm dedicated developer, 
-          spending hours on tweaking little things and experimenting with code.
-          I strive to provide the best possible solutions in terms of web development and craft eye-catching products.<br/><br/>
-          I treat every project as a challenge and opportunity to learn something new.
-          The fields I put most pressure, are:
+          My name's Filip. I live in Warsaw, Poland.<br/><br/>
+          As a dedicated developer, I strive to provide the most efficient solutions in terms of web development by crafting eye-catching products. My work style consists of devoting hours on tweaking little things and experimenting with code. 
+          <br/><br/>
+          I treat every project as a challenge and opportunity to build my skillset. The fields I focus on the most, are:
         </p>
 
         <div className="about_attributes_container">
@@ -63,17 +62,16 @@ function About() {
             <DesignIcon className="about_attribute_img"/>
             <h1 className="about_attribute_title">DESIGN</h1>
             <p className="about_attribute_description">
-              Designing shouldn't be imitative.
-              I follow my own design language and create
-              fresh-looking products, whatever they are.
+              Designing process shouldn't include mimicking. 
+              I always aim to develop fresh-looking products, whatever they are.
             </p>
           </div>
           <div className="about_attribute">
             <GranularityIcon className="about_attribute_img"/>
             <h1 className="about_attribute_title">GRANULARITY</h1>
             <p className="about_attribute_description">
-              I have an unusual attention to detail. 
-              I never assume my work is done until everything is tweaked and polished.
+              I retain a profound attention to detail. 
+              I never assume my work is concluded until everything is tweaked and polished.
             </p>
           </div>
         </div>

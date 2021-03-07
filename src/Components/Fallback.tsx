@@ -1,7 +1,5 @@
 function Fallback(){
-    return (
-        <div className="fallback_screen"/>
-    );
+    return <div style={{height: '100vh'}}/>
 };
 
 export default Fallback;
