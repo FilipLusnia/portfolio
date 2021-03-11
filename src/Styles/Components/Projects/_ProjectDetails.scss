@@ -250,10 +250,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation: revealDots 0.4s;
+    animation: revealDots 1.5s;
 
     @keyframes revealDots {
         0% { opacity: 0; }
+        50% { opacity: 0; }
         100% { opacity: 1; }
     }  
     
