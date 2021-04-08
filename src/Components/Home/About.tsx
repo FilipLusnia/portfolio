@@ -44,7 +44,7 @@ function About() {
         <h1 className="about_info_title">{'>'} ABOUT</h1>
         <p className="about_info_description">
           My name's Filip. I live in Warsaw, Poland.<br/><br/>
-          As a dedicated developer, I strive to provide the most efficient solutions in terms of web development by crafting eye-catching products. My work style consists of devoting hours on tweaking little things and experimenting with code. 
+          As a dedicated developer, I strive to provide the most efficient solutions in terms of web development by crafting eye-catching products. My work style mostly consists of devoting hours on tweaking little things and experimenting with code. 
           <br/><br/>
           I treat every project as a challenge and opportunity to build my skillset. The fields I focus on the most, are:
         </p>
@@ -71,7 +71,7 @@ function About() {
             <h1 className="about_attribute_title">GRANULARITY</h1>
             <p className="about_attribute_description">
               I retain a profound attention to detail. 
-              I never assume my work is concluded until everything is tweaked and polished.
+              I never assume my work is done until everything is tweaked and polished.
             </p>
           </div>
         </div>
