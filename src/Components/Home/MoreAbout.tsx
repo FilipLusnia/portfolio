@@ -1,4 +1,5 @@
 import { useCallback, useState, lazy } from 'react';
+import { Link } from "react-router-dom";
 
 import { ReactComponent as JsIcon } from '../../Resources/javascript.svg';
 import { ReactComponent as TsIcon } from '../../Resources/typescript.svg';
@@ -56,7 +57,7 @@ function MoreAbout() {
 
       <div className="more-about_bottom">
         <h1 ref={secondAnchor} className={bottomEmerged ? "more-about_bottom_title -emerged" : "more-about_bottom_title"}>WANT TO SEE HOW I HANDLE MY PROJECTS?</h1>
-        <a href='/projects' className={bottomEmerged ? "more-about_bottom_link -emerged" : "more-about_bottom_link"}>GET A GLIMPSE HERE.</a>
+        <Link to='/projects' className={bottomEmerged ? "more-about_bottom_link -emerged" : "more-about_bottom_link"}>GET A GLIMPSE HERE.</Link>
         <div className={bottomEmerged ? "more-about_bottom_line -emerged" :"more-about_bottom_line"}/>
       </div>
     </div>
