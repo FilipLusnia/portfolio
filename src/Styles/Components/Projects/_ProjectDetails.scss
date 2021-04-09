@@ -325,17 +325,15 @@
             max-height: 600px;
             
             &.-loaded{
-            
-                &:nth-child(1){
+
+                &:nth-child(1), &:nth-child(2), &:nth-child(3){
                     transform: skewY(0deg) translate(0px, 0px);
-                }
-    
-                &:nth-child(2){
-                    transform: skewY(0deg) translate(0px, 0px);
-                }
-        
-                &:nth-child(3){
-                    transform: skewY(0deg) translate(0px, 0px);
+                    animation: lowResSnapReveal 1s;
+                    
+                    @keyframes lowResSnapReveal {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
                 }
             }
         }
