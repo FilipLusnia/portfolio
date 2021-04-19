@@ -58,9 +58,11 @@
     padding: 5px 0;
     position: relative;
     transform: translate(0, 60px);
+    visibility: hidden;
 
     @keyframes disappear {
-        0% {transform: translate(0, 0); visibility: visible;}
+        0% {transform: translate(0, 0); visibility: visible; opacity: 1;}
+        99% {visibility: visible; opacity: 0;}
         100% {transform: translate(0, 60px); visibility: hidden;}
     }
     @keyframes appear{
@@ -92,7 +94,7 @@
 
     &.-active {
         transform: translate(0, 0);
-        display: block;
+        visibility: visible;
     }
 
 

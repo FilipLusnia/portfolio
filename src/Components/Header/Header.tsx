@@ -4,46 +4,30 @@ import { NavLink } from "react-router-dom";
 function Header() {
 
   const [isMenuActive, setIsMenuActive] = useState(false); 
-  const [linkState, setLinkState] = useState<any>({display: 'none'}); //removes menu links when not visible
-  const [blockMenu, setBlockMenu] = useState(true); //stops menu spam
   const [animationStop, setAnimationStop] = useState<any>({maxWidth: "60px"}); //prevents animation on page load
   const headerRef = useRef<any>(null);
 
-  const holdMenuState = () => {
-    //prevents user from spamming the menu button
-    setBlockMenu(true);
-    setTimeout(()=> {setBlockMenu(false)}, 600); 
-  }
-
   const openMenu = () => {
-    !blockMenu && setIsMenuActive(!isMenuActive);
-    !blockMenu && holdMenuState();
-  }
+    setIsMenuActive(!isMenuActive);
+  };
 
   useEffect(() => {
     // prevents menu from animating on page load ("fold" animation) and from opening before content is loaded
     setTimeout(()=> {
       setAnimationStop(null) ;
-      setBlockMenu(false);
-    }, 600); 
-
-    // removes links from menu when not visible
-    isMenuActive 
-      ? setLinkState({display: 'block'})
-      : setTimeout(()=> {setLinkState({display: 'none'})}, 600);
+    }, 600);
 
     const handleClick = (e: MouseEvent) => {
       e.preventDefault();
       if(headerRef.current.contains(e.target)) return;
-      !blockMenu && setIsMenuActive(false);
-    }
-    
+      setIsMenuActive(false);
+    };
     isMenuActive && document.addEventListener("mousedown", handleClick);
 
     return () => {
       document.removeEventListener("mousedown", handleClick);
     }
-  }, [isMenuActive, blockMenu]);
+  }, [isMenuActive]);
 
   return (
     <div className="header_container"> 
@@ -60,7 +44,6 @@ function Header() {
             exact to="/" 
             activeClassName="-current" 
             className={isMenuActive ? "nav_item -first -active" : "nav_item -first"} 
-            style={linkState}
             onClick={()=> setIsMenuActive(false)}>
               HOME
           </NavLink>
@@ -69,7 +52,6 @@ function Header() {
             exact to="/projects" 
             activeClassName="-current" 
             className={isMenuActive ? "nav_item -second -active" : "nav_item -second"} 
-            style={linkState}
             onClick={()=> setIsMenuActive(false)}>
               PROJECTS
           </NavLink>
@@ -78,7 +60,6 @@ function Header() {
             exact to="/contact" 
             activeClassName="-current" 
             className={isMenuActive ? "nav_item -third -active" : "nav_item -third"} 
-            style={linkState}
             onClick={()=> setIsMenuActive(false)}>
               CONTACT
           </NavLink>
