@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 
 function ScrollToTop(props: any){
