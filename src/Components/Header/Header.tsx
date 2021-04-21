@@ -4,29 +4,31 @@ import { NavLink } from "react-router-dom";
 function Header() {
 
   const [isMenuActive, setIsMenuActive] = useState(false); 
-  const [animationStop, setAnimationStop] = useState<any>({maxWidth: "60px"}); //prevents animation on page load
-  const [menuLinksStyle, setMenuLinksStyle] = useState<any>({display: 'none'}); //hides menu links when not visible
-  const headerRef = useRef<any>(null);
+  const [animationStop, setAnimationStop] = useState({maxWidth: '60px'}); //prevents animation on page load
+  const [menuLinksStyle, setMenuLinksStyle] = useState({display: 'none'}); //hides menu links when not visible
+  const headerRef = useRef<HTMLDivElement>(null);
+  const timer = useRef<any>(null);
 
   useEffect(() => {
     // prevents menu from animating on page load ("fold" animation)
     setTimeout(()=> {
-      setAnimationStop(null) ;
+      setAnimationStop({maxWidth: 'none'}) ;
     }, 600);
 
     //hides menu links when not visible
-    let timeout;
     !isMenuActive ?
-      timeout = setTimeout(() => { 
+      timer.current = setTimeout(() => { 
         setMenuLinksStyle({display: 'none'});
       }, 600)
     :
-      clearTimeout(timeout);
+      clearTimeout(timer.current)
       setMenuLinksStyle({display: 'block'});
 
     const handleClick = (e: MouseEvent) => {
       e.preventDefault();
-      if(headerRef.current.contains(e.target)) return;
+      if (headerRef.current !== null) {
+        if(headerRef.current.contains(e.target as HTMLDivElement)) return;
+      }
       setIsMenuActive(false);
     };
     isMenuActive && document.addEventListener("mousedown", handleClick);
