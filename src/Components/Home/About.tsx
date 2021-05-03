@@ -24,7 +24,7 @@ function About() {
         setProfileImgScr(photo);
         imageObserver.disconnect();
       };
-    }, {threshold: 0.05});
+    });
     div && imageObserver.observe(div);
     
     const newObserver = new IntersectionObserver(entries => {

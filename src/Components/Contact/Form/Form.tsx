@@ -12,7 +12,7 @@ function Form() {
     const [nameErr, setNameErr] = useState("");
     const [emailErr, setEmailErr] = useState("");
     const [textErr, setTextErr] = useState("");
-    const [ generalError, setGeneralError ] = useState(false);
+    const [generalError, setGeneralError] = useState(false);
 
     const [messageState, setMessageState] = useState('awaiting');
     const [inputsDisabled, setInputsDisabled] = useState(false);
@@ -56,6 +56,10 @@ function Form() {
                 setMessageState('sent');
             })
         }
+    }
+
+    const recaptchaCallback = () => {
+        console.log('e');
     }
 
     useEffect(() => {
@@ -122,6 +126,9 @@ function Form() {
                     :
                         <p className="form_success_message">Message successfully sent!</p>
                 }
+                <div className="recaptcha_wrapper" style={inputsDisabled ? {opacity: '0.5'} : undefined}>
+                    <div className="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LeYIbUaAAAAAGosq9EvGzlTFhJjoovYOC3LjPx2"/>
+                </div>
                 <div className="form_button_container">
                     <Button messageState={messageState} handleSubmit={handleSubmit} />
                 </div>
