@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import Button from './Button';
 
+declare global {
+    interface Window {
+        recaptchaCallback: Function,
+        recaptchaExpiredCallback: Function
+    }
+}
+
 function Form() {
     const [ messageData, setMessageData ] = useState({
         nameValue: '',
@@ -12,6 +19,7 @@ function Form() {
     const [nameErr, setNameErr] = useState("");
     const [emailErr, setEmailErr] = useState("");
     const [textErr, setTextErr] = useState("");
+    const [recaptchaError, setRecaptchaError] = useState<boolean|undefined>();
     const [generalError, setGeneralError] = useState(false);
 
     const [messageState, setMessageState] = useState('awaiting');
@@ -26,6 +34,7 @@ function Form() {
         setNameErr("");
         setEmailErr("");
         setTextErr("");
+        recaptchaError === undefined && setRecaptchaError(true);
 
         if(messageData.nameValue.length < 2 || messageData.nameValue.indexOf(" ") >= 0){
             setNameErr("That's not a valid name!")
@@ -58,23 +67,26 @@ function Form() {
         }
     }
 
-    const recaptchaCallback = () => {
-        console.log('e');
-    }
-
     useEffect(() => {
         if(messageData.nameValue.length < 2 || 
             messageData.nameValue.indexOf(" ") >= 0 ||
             messageData.emailValue.includes("@") === false ||
             messageData.emailValue.includes(".") === false ||
             messageData.emailValue.length < 5 ||
-            messageData.textValue.length < 50
+            messageData.textValue.length < 50 ||
+            recaptchaError
         ){
             setGeneralError(true);
         } else {
             setGeneralError(false);
         }
-    }, [messageData])
+    }, [messageData, recaptchaError])
+
+    const recaptchaCallback = () => setRecaptchaError(false);
+    window.recaptchaCallback = recaptchaCallback;
+
+    const recaptchaExpiredCallback = () => setRecaptchaError(true);
+    window.recaptchaExpiredCallback = recaptchaExpiredCallback;
 
     return (
         <div className="form_container">
@@ -126,9 +138,12 @@ function Form() {
                     :
                         <p className="form_success_message">Message successfully sent!</p>
                 }
-                <div className="recaptcha_wrapper" style={inputsDisabled ? {opacity: '0.5'} : undefined}>
-                    <div className="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LeYIbUaAAAAAGosq9EvGzlTFhJjoovYOC3LjPx2"/>
-                </div>
+                {messageState !== 'sent' &&
+                    <div className="recaptcha_wrapper" style={inputsDisabled ? {opacity: '0.5'} : undefined}>
+                        <div className="g-recaptcha" data-callback='recaptchaCallback' data-expired-callback='recaptchaExpiredCallback' data-sitekey="6LeYIbUaAAAAAGosq9EvGzlTFhJjoovYOC3LjPx2"/>
+                        {recaptchaError && <p className="recaptcha_error">Complete Recaptcha!</p>}
+                    </div>
+                }
                 <div className="form_button_container">
                     <Button messageState={messageState} handleSubmit={handleSubmit} />
                 </div>

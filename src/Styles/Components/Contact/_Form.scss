@@ -84,7 +84,6 @@
     justify-content: center;
 }
 .form_button{
-    margin-top: 25px;
     height: 50px;
     width: 45%;
     border: none;
@@ -203,7 +202,7 @@
     width: auto;
     margin-left: 6px;
 }
-.form_error{
+.form_error, .recaptcha_error{
     text-align: center;
     margin-top: 5px;
     font-size: 14px;
@@ -233,12 +232,24 @@
 
 .recaptcha_wrapper{
     display: flex;
-    justify-content: center;
-    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    min-height: 97px;
+}
+
+.recaptcha_error{
+    font-weight: 500;
 }
 
 @media(max-width: 900px){
     .form{
         width: 85%;
+    }
+}
+
+@media(max-width: 350px){
+    .recaptcha_wrapper{
+        transform: scale(0.9);
     }
 }
