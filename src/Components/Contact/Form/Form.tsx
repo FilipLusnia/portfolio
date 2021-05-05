@@ -138,10 +138,6 @@ function Form() {
                     :
                         <p className="form_success_message">Message successfully sent!</p>
                 }
-                <div className="recaptcha_wrapper" style={messageState === 'sent' ? {display: 'none'} : inputsDisabled ? {opacity: '0.5'} : undefined}>
-                    <div className="g-recaptcha" data-callback='recaptchaCallback' data-expired-callback='recaptchaExpiredCallback' data-sitekey="6LeYIbUaAAAAAGosq9EvGzlTFhJjoovYOC3LjPx2"/>
-                    {recaptchaError && <p className="recaptcha_error">Complete Recaptcha!</p>}
-                </div>
                 <div className="form_button_container">
                     <Button messageState={messageState} handleSubmit={handleSubmit} />
                 </div>
