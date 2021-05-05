@@ -48,7 +48,7 @@ function Form() {
             setTextErr("Message needs to be at least 50 characters long!")
         }
 
-        if(!generalError && (messageState)){
+        if(!generalError){
             setInputsDisabled(true);
             setMessageState('loading');
             emailjs.send(`${process.env.REACT_APP_mail_service}`, `${process.env.REACT_APP_mail_template}`,{
@@ -138,12 +138,10 @@ function Form() {
                     :
                         <p className="form_success_message">Message successfully sent!</p>
                 }
-                {messageState !== 'sent' &&
-                    <div className="recaptcha_wrapper" style={inputsDisabled ? {opacity: '0.5'} : undefined}>
-                        <div className="g-recaptcha" data-callback='recaptchaCallback' data-expired-callback='recaptchaExpiredCallback' data-sitekey="6LeYIbUaAAAAAGosq9EvGzlTFhJjoovYOC3LjPx2"/>
-                        {recaptchaError && <p className="recaptcha_error">Complete Recaptcha!</p>}
-                    </div>
-                }
+                <div className="recaptcha_wrapper" style={messageState === 'sent' ? {display: 'none'} : inputsDisabled ? {opacity: '0.5'} : undefined}>
+                    <div className="g-recaptcha" data-callback='recaptchaCallback' data-expired-callback='recaptchaExpiredCallback' data-sitekey="6LeYIbUaAAAAAGosq9EvGzlTFhJjoovYOC3LjPx2"/>
+                    {recaptchaError && <p className="recaptcha_error">Complete Recaptcha!</p>}
+                </div>
                 <div className="form_button_container">
                     <Button messageState={messageState} handleSubmit={handleSubmit} />
                 </div>
