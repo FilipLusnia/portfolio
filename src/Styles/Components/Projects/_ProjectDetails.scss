@@ -1,7 +1,13 @@
+.project_showcase_container_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
 .project_showcase_container{
     display: flex;
     justify-content: center;
-    min-height: 100vh;
 }
 
 .project_showcase{
