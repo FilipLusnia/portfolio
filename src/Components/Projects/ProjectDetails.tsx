@@ -27,11 +27,11 @@ interface projectParams {
 function ProjectDetails() {
     const { id } = useParams<RouteParams>();
     const [ selectedProject, setSelectedProject ] = useState<projectParams>();
-
+    console.log(selectedProject);
     useEffect(() => {
         fetch(`${process.env.REACT_APP_projects_endpoint}/${id}`)
         .then((resp) => resp.json())
-        .then(data => setSelectedProject(data));
+        .then(data => setSelectedProject(data))
     }, [id]);
 
     return (
@@ -62,10 +62,12 @@ function ProjectDetails() {
                         :
                             <p className="project_details_demo -unavialable">Demo unavailable - advanced environment is required. <br/> Check the source code for details.</p>
                         }
-                        <div className="project_details_source_container">
-                            <GithubIcon className="project_details_source_icon"/>
-                            <a className="project_details_source" href={selectedProject.github} target='blank' rel="noreferrer" aria-label="Go to project's source code">Source code & Readme</a>
-                        </div>   
+                        {selectedProject.github &&
+                            <div className="project_details_source_container">
+                                <GithubIcon className="project_details_source_icon"/>
+                                <a className="project_details_source" href={selectedProject.github} target='blank' rel="noreferrer" aria-label="Go to project's source code">Source code & Readme</a>
+                            </div>
+                        }   
                     </div>
                     <div className="project_snapshots">
                         <img src={selectedProject.photos.showcase.third} className={selectedProject.photos.showcase.third ? 'snapshot -loaded' : 'snapshot'} alt='showcase_thumb'/>
